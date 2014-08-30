@@ -1,0 +1,43 @@
+/*
+ *
+ *
+ ******************************************** Licence *******************************************
+ * 																								*
+ * This File is part of Algorithms Arabic Video Series											*
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * 																								*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ * 																								*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * 																								*
+ * 																								*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * 																								*
+ * Mostafa Saad Ibrahim © 2013																	*
+ * 																								*
+ ************************************************************************************************
+ *
+ *
+ */
+ 
+ -------------------------------------------------- Thinking - On papers Not on PC ---------------------------------------------------
+
+Remember the comofortable zone? When you move from Easy to meduim to hard problem. you suffer more.
+	The more compleixy of problem, the MORE thinking you nee about it.
+
+
+One of main problems is that coders loves the PCs and loves solving over the machine. 
+	In many cases, this push them to write the solution, without doing all necessary steps first (e.g. verifying idea/order)
+	The mind will be bounded on PC and will keep doing "work arounds" to fix idea/code.
+
+It is much better to think on papers away of the PC. Skeptch FULL idea and verify it.
+
+Same for implementation of a hard problem, you think more about code before writing it.
+
+Yourself will tell you coding on PC is faster, tell her NO, this is not easy idea/code for me.
+
+If you sketched a code/idea and later discovered a mistake in it! LEFT the machine.
+	Back to paper, repeat your life cycle. NEVER to think on PC.
+	
+	
+Finally, In Real ICPC contest, Teams are of 3, with 1 pc. When you think on paper, you save team time.

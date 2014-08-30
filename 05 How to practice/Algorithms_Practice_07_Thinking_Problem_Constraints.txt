@@ -1,0 +1,55 @@
+/*
+ *
+ *
+ ******************************************** Licence *******************************************
+ * 																								*
+ * This File is part of Algorithms Arabic Video Series											*
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * 																								*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ * 																								*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * 																								*
+ * 																								*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * 																								*
+ * Mostafa Saad Ibrahim © 2013																	*
+ * 																								*
+ ************************************************************************************************
+ *
+ *
+ */
+ 
+ --------------------------------------------------Thinking - Problem Constraints -----------------------------------------------------------
+
+Sometimes Problem Constrains are the clue. Many times it is a guide of how algorithm should be complex! Rarely misleading.
+	N = 10, Not like N = 100, Not like N = 10^12, Not like 10^18
+
+Constraints may be traditional: 3 <= N <= 50
+Sometimes they are problem domain specific: max(2*a + b, c) < d
+	This one is so critical, never ignore them if you don't understand why this constraint is important
+	Many times, such constraints makes a special problem out of a general one. Ignoring them is fatal mistake.
+
+Do you remember the complexity table? Some estimations that may help
+
+		N				complexity			Possible Algorithms & Techniques
+
+		10^18			O(log(N))			Binary & Ternary Search / Matrix Power / Cycle Tricks / Big Simulation Steps / Values ReRank
+		100 000 000		O(N)				A Linear Solution - May be a greedy algorithm
+		40 000 000		O(N log N)			linear # calls to Binary & Ternary Search / Pre-processing & Querying / D & C
+		10 000			O(N2)				adhock / DP / Greedy / D & C / B & B
+		500				O(N3)				adhock / DP / Greedy / ..
+		90				O(N4)				adhock / DP / Greedy / ...
+		30-50								Search with pruning - branch and bound
+		40				O(2^N/2)			Meet in Middle
+		20				O(2^N)				Backtracking / Generating 2^N Subsets
+		11				O(N!)				Factorial / Permutations / Combination Algorithm
+
+
+Sometimes the constraint is misleading and it is a "fake" limit:
+	E.g. what is 1st most right digit in n! where n < 10^18?	Simply starting from n = 5, answer is zero!
+	Say you need to calculate F(n) where n < 10^9, by analysis you discovered that F(n > 20) is constant, and < 20 is brute forcable!
+
+Sometimes the constraint is real, but could carefully be eliminated, e.g. Mathematics problems
+	As a trivial example for elimination is combination: Choose(1000, 997) = 1000! / (!997 * 3!) = (998 * 999 * 1000) / 6
+	Generally, your target calculations could be highly simplified

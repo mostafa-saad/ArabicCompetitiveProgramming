@@ -1,0 +1,56 @@
+/*
+ *
+ *
+ ******************************************** Licence *******************************************
+ * 																								*
+ * This File is part of Algorithms Arabic Video Series											*
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * 																								*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ * 																								*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * 																								*
+ * 																								*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * 																								*
+ * Mostafa Saad Ibrahim © 2013																	*
+ * 																								*
+ ************************************************************************************************
+ *
+ *
+ */
+ 
+ --------------------------------------------------Thinking - Problem Domain re-interpretation---------------------------------------
+
+A problem may have a domain: E.g. given N cities find a path from A to B?
+	This problem lies in graph theory domain.
+
+What if the cities are in Euclidean space? Then we have 2 involved domains: Graphical and Geometrical.
+
+Sometimes, the solution requires you to re-interpret the problem in another domain. This is not always do-able, but may be the clue.
+
+E.g. Say we have teams in ICPC competitions. Each team has strength (a, b). Team beat another if both a1 > a2 and b1 > b2.
+	The problem solution in its internals requires knowing how many teams I could beat. This is doable in O(n^2). What if n so big?
+
+	Could you reinterpret this problem domain? Yes, Geometricallly!
+		Imagine plane where points are strength (a, b).
+		Now, Team with (a, b) beats the teams in rectangle (a+1, b+1) - (MAX_A, MAX_B). Find fast way to count them FAST.
+
+E.g. Given a sequence S of integers, and operation to minimize an item by 1, what is minimum operations applied to
+	let this sequence convex (e.g. S[i-1] + S[i+1] >= 2 * S[i], for each i)
+
+	Imagine plane where points are (idx, S[idx])...start to draw lines from ith point to....and do.... (don't care with details)
+
+
+E.g. You are given set of states, each one is represented in terms of other sub-states, evaluate value for a given state.
+	
+	Let's reinterpret it Mathematically. Let each state is variable. Then we have N variables.
+	Construct a matrix of the variables relations, Guassian Elimination is the solution .... (don't care with details)
+	
+E.g. Given set of boxes, each box has a key and is opened by certain key. Given a starting key, could you open all of them?
+	Let's interpret it Graphically. Think in keys as graph nodes. We start from certain node(key). We move from key to another, by opening a box.
+		Solution now is Eulerian Path.
+		
+	What about thinking in boxes as nodes, and form box to box an edge if it has its key. An extra source node for the starting key.
+	
+	

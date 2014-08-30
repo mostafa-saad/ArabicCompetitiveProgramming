@@ -1,0 +1,97 @@
+/*
+ *
+ *
+ ******************************************** Licence *******************************************
+ * 																								*
+ * This File is part of Algorithms Arabic Video Series											*
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * 																								*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ * 																								*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * 																								*
+ * 																								*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * 																								*
+ * Mostafa Saad Ibrahim © 2013																	*
+ * 																								*
+ ************************************************************************************************
+ *
+ *
+ */
+ 
+ 
+ - Expectation of the Sum = Sum of the Expectations 
+
+	E(X) = E(∑xi) = ∑ E(xi)		X is vector of random variables, Regardless if xi's are dependent or nor
+	
+	Proof: E(X + Y) = trying every number from X and Y = 2 nested loops = ∑ ∑
+	
+		E(X + Y) 	= ∑ ∑ (x+y) * p(x, y)						-> split (x+y)
+					= ∑ ∑ x * p(x, y) +  ∑ ∑ y * p(x, y)
+					= ∑ x ∑ p(x, y) +  ∑ y ∑ p(x, y)
+					= ∑ x ∑ p(x) p(y|x) +  ∑ y ∑ p(y) P(x|y)
+					= ∑ x p(x) ∑ p(y|x) +  ∑ y p(y) ∑ P(x|y)  	-> ∑ p(y|x) = ∑ P(x|y) = 1
+					= ∑ x p(x) +  ∑ y p(y)
+					= E(X) + E(Y)
+	
+	
+	Such property = independency -> hence more efficient algorithms... ALWAYS Search for it.
+	
+	E.g. A fair coin flip experiment is carried out N times. What is the expected number of heads?
+	
+		E(# heads) = E(∑hi) = ∑ E(hi) = 0.5 + 0.5 ... N times = N/2
+
+	E.g. TC(EllysRoomAssignmentsDiv1)
+		We have list of M contestants, to be divided on rooms, each room with K contestant. We pick first R = (M/K) contestant
+		and randomly assign them to distinct rooms, and so on. Each contestant has a rate. We care with first person in list.
+		What is expected average rate in his room.
+			
+			E(avgRate) = ∑ F(room assign vector) * Prob ... where F is average function
+			
+				Study F Function: Could it be expressed as linear summation (s)? If so, consider the independency.
+					
+					As F is average function. If # items = K, then F([a1 a2 ... an]) = a1/n + a2/n ... an/n
+			
+			E.g. Say we have M=9 rates = (1, 2, 3, 4, 5, 6, 7, 8, 9), K=3. Then we have 9/3=3 rooms. We care with contestant of rate 1.
+				Then possible assignments for room of 1: [1, 4, 7], [1, 4, 8], [1, 4, 9], [1, 5, 7], [1, 5, 8], [1, 5, 9], [1, 6, 7], [1, 6, 8], [1, 6, 9]
+				
+			
+			Then answer = E(avgRate)   = ∑ ∑ ∑ (x+y+z)/3 * p(x, y, z)
+										= 1/3 * ∑ ∑ ∑ (x+y+z)/3 * p(x, y, z)
+										= 1/3 (E(X)+E(Y)+E(Z))
+										
+										Then we just need to calculate the expected avg per room and divide by total number of rooms.
+										
+										
+			What if instead of room avg, we need summation of all possible sub-ranges. E.g. (1, 4, 7) = 1, 4, 7, 14, 47, 147
+				Unless we get some linearity in F, we have no way and should generate all possible assignments!
+				A typical splitting should be in format: F([a1 a2 .. an]) = ∑ alpha_i * F(ai)
+					Little thinking, you will find each index is used (i+1) * (n-i) times, then alpha_i = (i+1) * (n-i)
+					
+		
+		----------------------------------------------------------------------------------------------------------------------------------------					
+		General Role: If E(X) = ∑ F(Veci) * Prob_Veci .... Analyze F linarity, according to that you have summation of expectations -> ∑ E(Xi), if p allows
+		----------------------------------------------------------------------------------------------------------------------------------------
+
+	E.g. CodeForces(138D)
+		We have N Engineers, each needs one T-shirt which are of sizes [1-M]. Company ordered N T-shirts: 
+			N1 T-shirt of size 1, N2 T-shirt of size 2, Nn T-shirt of size n
+		Given prop[N][M]: probability jth T-shirt fit ith engineer. Each engineer either got 1 T-shirt or none. 
+			What is expected # engineers who got T-shirts?
+		
+			E.g. Say N = M = 2. Prop[0] = {0.5 0.5}. Prop[1] = {0.5 0.5}. We have 4 possible cases for Engineers: E_VEC: [1, 1], [1, 2], [2, 1], [2, 2]
+			Let Company T-shirts be T_VEC[1, 1], that is 1 t-shirt of each size. Then expected # eng = ∑ F(E_VEC_i, T_VEC) * Prop_E_VEC_i
+			Each E_VEC has prop 1/4. E(# Engineers) = (1+2+2+1) / 4 = 1.5. E.g. F([1, 2], [1, 1]) = 2, each engineer got a t-shirt.
+			
+			We will be happy if we got:  E(# Engineers, T-shirts) = ∑ alpha_i * E(# Engineers, ith engineer).
+			
+			Now time to analyze F for linearity. Could we find something like ∑ E(Xi) where Xi is for an engineer? NO, F function is coupled with E_VEC!
+				Why: Let's convert E_VEC to frequency of required T-shirts: E_FREQ_VEC. F(E_VEC_i, T_VEC) = ∑ min(E_FREQ_VEC[i], T_VEC[i]);
+				
+				Luckily, there is another source of linarity. T_VEC itself. Handling 1st T-shirt doesn't affect 2nd T-shirt.
+					E.g. Say T_VEC[2, 5, 4]. F(E_VEC, [2, 5, 4]) = F(E_VEC, [2, 0, 0]) + F(E_VEC, [0, 5, 0]) + F(E_VEC, [0, 0, 4])
+					
+				Then E(# Engineers, T-shirts) = ∑ E(# Engineers, jth T-Shirt).
+
+************************************************************************************************************************************************

@@ -1,0 +1,223 @@
+/*
+ *
+ *
+ ******************************************** Licence *******************************************
+ * 																								*
+ * This File is part of Algorithms Arabic Video Series											*
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * 																								*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ * 																								*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * 																								*
+ * 																								*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * 																								*
+ * Mostafa Saad Ibrahim © 2013																	*
+ * 																								*
+ ************************************************************************************************
+ *
+ *
+ */
+ 
+ 
+ Note: You may need to check a previous session about Linearity of Expectation.
+************************************************************************************************************************************************
+
+	
+- Law of Total Expectation
+
+	Suppose we roll a fair die; whatever number comes up we toss a coin that many times. What is the expected number of heads? 0 for tail, 1 for head
+	
+	Die = 1 with 1/6	Coin: 0 with 1/2 - 1 with 1/2
+	Die = 2 with 1/6	Coin: 00, 01, 10, 11 with 1/4
+	Die = 3 with 1/6	Coin: 000, 001, 010, 011, 100, 101, 110, 111 each with 1/8
+	...
+	
+	So expected number of heads = 1/6 * (1/2 * 0 + 1/2* 1) + 1/6 * (1/4*0 + 1/4*1 + 1/4*1 + 1/4 * 2) .....
+				    
+	
+		Note: (1/4*0 + 1/4*1 + 1/4*1 + 1/4 * 2) is E(expected number of heads) if tossed twice
+			
+								= 1/6 ( E(H|1) + E(H|2) + E(H|3) + E(H|4) + E(H|5) + E(H|6) )
+								
+			  	E(N) = 0.5 (1 + E(N-1)) + 0.5 E(N-1)
+				E(N)     = E(N-1) + 0.5
+				E(N)	 = N/2
+				
+								= 1/6 * (1 + 2 + 3 + 4 + 5 + 6) / 2 = 1.75
+	
+	
+	When an experiment is dependent on other experiment -> law of total\iterated expectation is much better
+	
+		law of total\iterated expectation:  E[Y] = E[ E[Y|X] ]
+			E.g. 	X is the Die, Y is # number of heads
+					For Each x in X -> Y|X=x -> E[Y|X] is a variable
+					E[Y] = E[ E[Y|X] ] = Sum Prob_x * F(x) where F(x) = E[Y|X=x]
+					
+					
+		In other words, Say we have set of experiments, X, Y, Z... each one dependent only on previous one
+		
+		A = E(Z) -> B = E(Y|A) -> C = E[X|B]
+		
+		So 	E_Die = 1 * 1.6 + 2 * 1/6 3 * 1/6 ... = 1/6 * (1 + 2 + 3 + 4 + 5 + 6) = 3.5
+			E_Heads(N) = N/2
+			
+			E_Heads(E_Die) = 3.5 / 2 = 1.75
+			
+		We just do series of linear evaluations!!
+		
+	
+	Let's move to a programmatic example. 
+		------------------------------------------------------------------------------------------------------------------------------------------------
+		Suppose we have a stick of length L. We do n cuts at integer position with equal probability. 
+		Each time we cur stick, we drop 2nd part and continue work on first part.
+		
+		E.g. Say L = 6 and n = 2
+			First cut could be 1, 2, 3, 4, 5, 6.
+			Say we did cut at 4 with probability 1/6. Now our new stick of length 4.
+				Now we could do cut at 1, 2, 3, 4 with probability 1/4. Say we did cut at 3. Then last piece is of length 3
+				
+		What is the expected Length of last piece? basic code will be N nested loops (recursive depth N) that tries cuts one by one and sum for expectation.
+			Mathematically: 
+				E(X) = ∑ ∑ ∑ ... F(x, y, z,...w) * p(x, y, z, ...w)	where x, y, z...w are the connective cuts we did. E.g. (4, 3) with probability 1/6 * 1/4
+				
+			Again, let's analyze F for possible linearity. F(x, y, z,...w) = w, the last cut.
+				This is useless. It says E(X) = ∑ w * p(w). To calculate p(w), we again have to enumerate all possible x, y, z...
+				
+			No way, code like:
+				
+				double expetcedCutLength_Rec(int curLen, int n) {	// Memoizing: O(L^2 n)
+					if(n == 0)
+						return curLen;
+				
+					double ret = 0;
+				
+					lpi(i, 1, curLen+1)
+						ret += expetcedCutLength_Rec(i, n-1) / curLen;
+				
+					return ret;
+				}
+				
+		So what about law of iterated expectation. Notice that ith experiment is dependent on result of i-1th experiment. 
+			Also, all experiments are same in nature
+		
+			That is: E(Length) at time T = E(Length) at Time T-1	- This is called time-series. We could have this trivial code.
+			
+			Then all what we need is to know, Given L, what is E(L) if n = 1. Iterating N times is the answer.
+			
+			Easy. E(L) = 1/L + 2/L + 3/L .... L/L = (1+2+3..L) / L = (L+1)/2;
+			
+			Then code is:
+			
+				double expetcedCutLength_totalExpectation(int curLen, int n) {	// O(N). 
+					
+					double expected = curLen;
+				
+					lp(t, n)
+						expected = (expected + 1) / 2;
+				
+					return expected;
+				}
+				
+			Due to linearity of expectation, you need to consider 2 other points if needed:
+				1) Could we drive a closed form? In this case, Yes: 0.5 + curLen / 2^n
+				2) Could we drive transition matrix and apply matrix power, also YES
+			
+			----------------------------------------------------------------------------------------------------------------------------------------					
+			General Role: Whenever evaluating E(X) after K steps such that Each E(X) is dependent on last Expectation -> law of total expectation
+			----------------------------------------------------------------------------------------------------------------------------------------
+					
+		------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		Other example: TC(BankLottery) We are in bank of N persons, each has amount M[i] in his account. Each week, 
+			we pick a winner randomly (each with M[i] / TotalMoney) and give him V money. After K week, what is expected money in M[0].
+			
+		Again, our selected K winners: E(X) = ∑ ∑ ∑ ... F(w1, w2, w3, ....) * p(w1, w2, w3, ....)	where w1, w2, w3 are winners indicies.
+			F(X = [w1, w2, w3, ....]) = V * ∑ wi == 0		That is how many times first account won * V
+			
+				What about F linearity? Regardless of it, p() is very dependent on choices so far! As probability is M_update[i] / TotalMoney_update
+				
+					This could be implemented as expected(vector<double> M, int K) {}. That is we need to send current status!
+				
+			Observation: Say initially we have total as money sum. After N weeks, total is total + N*V
+						 Similarly, If M[i] won G times after N weeks, then M[i]_update = M[i] + G*V 
+						 
+				E(X) could have a simpler format: E(X) = ∑ ∑ ∑ ... F(b0, b1, b2, ....) * p(b0, b1, b2, ....) where bi is boolean indicated won or not.
+					Then F(b0, b1, b2, ....) = V * ∑ bi == true. p(b0, b1, b2, ....) Now is easier to distribute, we don't care with others.
+					
+						Although F is linear, again p is dependent on choices so far, but 
+						new formulation make it depends on 2 vars only: currentWeek & how many times 0th account won. Hence we don't need whole array
+					
+					This could be implemented as following
+		 				
+					double expectedMoney(int w, int timesWon)
+					{
+					    if(w == weekCount)
+					        return M[0] + timesWon * V;
+					
+						double p = (M[0]+timesWon*V) / (intialTotal+w*V);
+						return p * expectedMoney(w+1, timesWon+1) + (1-p) * expectedMoney(w+1, timesWon);
+					}
+					
+					Also, instead, calculate # of expected wins
+					
+					double expectedWonTimes(int w, int timesWon)
+					{
+					    if(w == weekCount)
+					        return timesWon;
+					
+						double p = (M[0]+timesWon*V) / (intialTotal+w*V);
+					
+						return p * expectedWonTimes(w+1, timesWon+1) + (1-p) * expectedWonTimes(w+1, timesWon);
+					}
+					
+					answer is: M[0] + V * expectedWonTimes(0, 0);
+					 
+	
+		Time for the easier approach! We know we are in time-series. Need expectation after K similar experiments, each one function of previous.
+			Q: Given initial M, could you find expected vector after 1 week? SURE! Do that K times
+			
+				lp(i, k)
+				{
+					double sum = 0;
+					rep(i, M)	sum += M[i];
+					rep(i, M)	M[i] += M[i] / sum * V;
+				}
+			
+			Let's do more simplification. We just need to think me and others instead of me and each other account.
+			
+				double me = M[0], others = intialTotal - me;
+	
+				lp(i, weekCount)
+				{
+					double p = me / (me + others);
+					me += p * V;
+					others += (1-p) * V;
+				}
+	
+			So, what about O(1) solution! Let math rearrangement for p, you could find that
+			
+			me / (me + others) = (me + p*V) / (me + others + (1-p) * V). Thats is P never changes! This is due to systematic operations
+			
+			Then result in O(1) is: me + me / (me + others) * weekCount * V
+			
+				What does this mean: The final distributed money is based on initial proportions of each accounts. Keep this Intuitive in mind for future.
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				

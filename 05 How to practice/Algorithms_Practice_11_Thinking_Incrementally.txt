@@ -1,0 +1,79 @@
+/*
+ *
+ *
+ ******************************************** Licence *******************************************
+ * 																								*
+ * This File is part of Algorithms Arabic Video Series											*
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * 																								*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ * 																								*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * 																								*
+ * 																								*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * 																								*
+ * Mostafa Saad Ibrahim © 2013																	*
+ * 																								*
+ ************************************************************************************************
+ *
+ *
+ */
+ 
+ 
+ --------------------------------------------------Thinking - Incrementally ---------------------------------------
+
+Incremental algorithm is one that process input step by step, in each step it finds its way to update the old state with new item.
+
+	E.g. Given N unordered Numbers, find a sorting algorithm. To think incrementally, you do the following: 
+		[Say we have sorted the first m items], how to add the m+1 item and update array to be again sorted?
+			If we managed to do that, we found an algorithm.
+			
+			Let say array is 10 2 7 4 15
+			
+			Let's say we have sorted the first 3 elements (then we have 2 7 10), could we add 4th element (4)?
+				YES, move backward tell find an element 4th element is greater than it
+					Intially 2 7 10 4	NO
+							 2 7 4 10	NO
+							 2 4 7 10	YES
+			
+			This is called Insertion Sort Algorithm.
+			
+	E.g. Given an array, we perform K swap operations selected randomly, what is expected array?
+		[Say we have the answer array after m swaps], how to update the m+1 swap?
+		
+		Let say we have array a b c d	.. a position is prop1 to be selected in a swap, prop2 to not.
+		
+		Now, let's build answer incrementally, that step by step we update the array.
+		For each position, it is either swapped with one of n-1 var, or not swapped. Using normal Expectation Equ
+			E.g, for first position : a'  = a*prop2 + b*prop1 + c*prop1 + d*prop1
+			E.g, for second position: b' = a*prop1 + b*prop2 + c*prop1 + d*prop1
+			
+			Repeat for k times. SRM575-1-2
+	
+	** In Many cases, Incremental Thinking needs data sorting, as its idea is based on growing up the solution.
+	
+	E.g. Given N points in 2D space, find a convex hull of them (later we will take that algorithm)
+		[If we have the convex hull of the first m points], how to add the m+1 point, and update to the next convex hull?
+			CAN'T!
+			
+		Let's sort the points relative to a corner point, could we do the update? YES
+		
+	E.g. Given set of squares, {(-R, -R), (R, R)}, a random bomb is put inside each square. 
+		Power of a Point is X^2 (X number of bombs in point). Total power is sum of points power. What is expected power?
+		
+		Sort the rectanges based on R. Say we have expected power of first m rectanges, how to update for next? SRM526.5-1-2
+		
+	
+	Sometimes, the incremental algorithm order is big, as update operation is costive.
+		In case order doesn't affect, consider input randomization, somtimes help.
+		
+	Sometimes update from state to another is systematic, that we could model it in a matrix, 
+		and perfrom matrix power to get all incremental steps zipped in one matrix. 	
+		
+		
+		
+		
+		
+		
+		

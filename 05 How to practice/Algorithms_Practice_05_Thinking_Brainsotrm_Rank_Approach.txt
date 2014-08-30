@@ -1,0 +1,47 @@
+/*
+ *
+ *
+ ******************************************** Licence *******************************************
+ * 																								*
+ * This File is part of Algorithms Arabic Video Series											*
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * 																								*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ * 																								*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * 																								*
+ * 																								*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * 																								*
+ * Mostafa Saad Ibrahim © 2013																	*
+ * 																								*
+ ************************************************************************************************
+ *
+ *
+ */
+ 
+ -------------------------------------------------- Thinking - Brainsotrm - Rank - Approach ---------------------------------------------------
+
+In many times, contestants start to think in a problem, found an idea (e.g. let's make it by DP) and start to do "DIVING"
+	By Diving I mean, keep trying to solve the problem based on an idea, but time passes with no output! 
+		In other words, you are "STUCK in thinking"
+	
+		Sometimes, Idea is correct, but they don't study enough algorithms to know how to continue
+		Sometimes, Idea is correct, but they don't do enough observations
+		Sometimes, approach is correct (e.g. it is DP), but the idea itself is wrong (you need to think in other reccurance)
+		Sometimes, approach is incorrect, and you need to think differently
+		
+		How to avoid stucking?
+	
+It is very important to BRAINSOTRM storm on different solutions that may work, before focusing on one way.
+	E.g. Given ... Find the minium X? Think that DP, greedy, Min Cut, B & B or some adhock idea MAY do it.
+		
+	1- Try to RANK your guesses based on your analysis
+	2- APPROACH the problem using most probable idea to do it (which may be wrong)
+	3- Keep your eyes on TIME. When you start to tackle it this way?
+	4- After little analysis, rethink about your ideas RANK. Is current approach still the best?
+	
+No idea is a bad idea
+	Even if think idea is ridiculous, or will never work, give it a trial
+	E.g. In many hard DPs one think this state is so big, we can't do it..and then 
+		an observation appears! sparce space is possible! problem is doable!

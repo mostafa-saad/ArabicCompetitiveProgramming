@@ -1,0 +1,94 @@
+/*
+ *
+ *
+ ******************************************** Licence *******************************************
+ * 																								*
+ * This File is part of Algorithms Arabic Video Series											*
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * 																								*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ * 																								*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * 																								*
+ * 																								*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * 																								*
+ * Mostafa Saad Ibrahim © 2013																	*
+ * 																								*
+ ************************************************************************************************
+ *
+ *
+ */
+ 
+ --------------------------------------------------Thinking - Problem Simplification ---------------------------------------
+
+Sometimes, thinking in a simpler or a special version of the given problems, helps you to build up your intuition.
+
+Case 1: Problem to Sub-Problems
+
+	In many cases, especially hard problems, a problem may be decomposed of other sub-problems.
+	Realizing these sub-problems may be easy and may be hard. Sometimes, a problem could be divided in may ways.
+
+	Sometimes problems occurs:
+		You keep trying in the sub-problem with no hope!
+			Always remember, you are JUST solving a sub-problem you invented.
+			If could not do it, may be you need to think in other sub-problem...or tackle it in a totally different way
+
+Case 2: From Simple to complex
+
+ 	 Sometimes, you could think in a special problem/case, and then try to update the solution for general problem/case.
+
+ 	 E.g. Problem mentioned 3 Constraints on the returned output. What if no constraints? What if 2nd constraint only?
+
+ 	 E.g. Given R*C 2D array?	what if 1*1? 1*2? 2*1? 2*2 ...increment to ... R*C
+
+ 	 E.g. Given a polygon? 		What if it was just a triangle? What if was convex?
+
+ 	 E.g. Game consist of N players? 	What if 1 player? 2? 3 .... N players?
+
+ 	 E.g. Given a graph?	What if A chain Graph? What if DAG? What if tree?
+
+ 	 E.g. Given a 3D shape/array?	What if 1D? What if 2D? 3D?
+
+ 	 E.g. Given set of Rectangles covering Big Space?	What if their coordinates are small?
+
+ 	 E.g. Find answer in the given base?	What if base only is 10? base is a prime number?
+
+ 	 E.g. In many cases, simplification is adhock - think how to start with simple state
+
+ 	 Sometimes problems occurs:
+ 	 	 E.g. you started to solve the polygon problem for convex case, BUT convex case couldn't be incremented!
+ 	 	 E.g. you started to solve the graph problem for DAG case, BUT DAG case couldn't be incremented!
+
+ 	 	 Always have a vision, how a special case may be incremented? Don't consume lot of time without return!
+
+Case 3: Simplification by Assumptions
+
+	Idea is to make some assumptions that make problem easier, or special of general one.
+
+	Say you have to find X, Y and Z and use them in evaluating F(X, Y, Z).
+	You got confused due to trying to think in all of them together.
+		Start to do temporary assumptions to have thoughts about the solution. E.g. What if we SOLVED X, how to find Y and Z?
+		Found it harder? Think What if we SOLVED X & Y, how to find Z?
+	
+
+Generally, 
+	Problem simplification helps when you can't start with an idea and is stuck. 
+	They open up our brains to think creatively and encourage solutions.
+
+Finally, 
+	The more experience you gain, the harder problems you can directly attack without simplifying them.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
