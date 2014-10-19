@@ -1,0 +1,44 @@
+/*
+ *
+ *
+ ******************************************** Licence *******************************************
+ * 																								*
+ * This File is part of Algorithms Arabic Video Series											*
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * 																								*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ * 																								*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * 																								*
+ * 																								*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * 																								*
+ * Mostafa Saad Ibrahim © 2013																	*
+ * 																								*
+ ************************************************************************************************
+ *
+ *
+ */
+ 
+ --------------------------------------------------Thinking - Problem Abstraction---------------------------------------
+
+"Problem Abstraction" is a great tool to have a different view of the problem, where you redefine the problem
+in very "general" terms AWAY from the problem Domain.
+
+E.g. if the problem talks about set of words, and we could translate a word to another according to a cost function.
+What is minimal cost to convert string A to string B.
+
+Problem abstraction: graph node = word, edge cost = cost function.
+	What is "shortest path" to move from Node A to Node B.
+
+
+The Power of Abstraction is that it drops with problem domain (dictionary words in the example) and give you a general definition.
+The point, our mind is filled with the basic algorithms definition - hence recognizing the target algorithm FASTER.
+
+So when ever you got a problem, think in some ways to abstract it, you could reach correct algorithm faster than you imagine.
+
+But, never to drop the original problem, sometimes your abstraction drop some important domain consideration.
+	E.g. Given set of points in Euclidean space, find a path with the given criteria.
+		Abstracting the problem to a general graph representation, lose the Euclidean space, which was the CLUE!
+
+	E.g. the given graph is bipartite and your abstraction dropped this feature.

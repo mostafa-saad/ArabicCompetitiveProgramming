@@ -1,0 +1,316 @@
+/*
+ *
+ *
+ ******************************************** Licence *******************************************
+ * 																								*
+ * This File is part of Algorithms Arabic Video Series											*
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * 																								*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ * 																								*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * 																								*
+ * 																								*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * 																								*
+ * Mostafa Saad Ibrahim © 2013																	*
+ * 																								*
+ ************************************************************************************************
+ *
+ *
+ */
+ 
+ 
+ -------------------------------------------------- So far -----------------------------------------------------------
+
+So far we gave a simple introduction: Measuring performance, adhock topics and little math staff
+
+
+Typically, like what coaches do, We should move toward more algorithms and techniques.
+
+
+But in my opinion, we miss a question!
+
+	Considering our best seniors performance, are we in the expected location among world contestants?
+
+		If yes, this is great! Let's keep up practicing and transferring knowledge to new comers!
+		
+		If no, then 	SAME training => SAME results.
+			That is, new generations END where we ENDED!
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+-------------------------------------------------- Where are we? -----------------------------------------------------------
+
+TC can't be enough measure, but we could use it as a good indicator. Let's try it.
+
+
+
+Have you ever thought what kind of MENTAL process that could solve a Div1-250  in 3  minutes!
+															 solve a Div1-500  in 8  minutes!
+															 solve a Div1-1000 in 25 minutes!
+
+
+
+
+	Let's do some comparisons.
+
+
+
+
+
+	Success Rate		Div1-250				Div1-500					Div1-1000
+
+	ahmed_aly			93/123  = 75.6%			24/43 = 55.8%				2/9  = 22.2%
+	amr_samir			65/86   = 78.3%			21/36 = 58.3%				4/5  = 80.0%
+	cpphamza			146/190 = 76.8%			43/95 = 45.2%				5/16 = 31.2%
+	Fegla(coach)		172/223 = 77.1%			39/82 = 47.5%				1/8  = 12.5%
+	ahmed_thabet		76/98   = 77.5%			16/25 = 64.0%				0/1  = 0%
+
+
+
+	*) Most of solved problems in Div1-100 are solved in TCO qualification rounds! Some of Div1-500 from TCO too.
+	*) Contestants from other universities in Egypt have similar performance
+	*) Egypt overall TC score is 1797, Stable best Egyptian topcoders move stably in rang [1750-2000]
+
+
+
+	Let's compare with some "stable" red topcoders, I selected scores: 2500, 2600, 2700, 2800, 2900 and 3000
+
+
+
+	Success Rate		Div1-250				Div1-500					Div1-1000
+
+	2500/jakubr			108/122 = 88.5%			76/98   = 77.5%				27/42 = 64.2%
+	2600/lovro			151/187 = 84.8%			103/149 = 69.1%				41/84 = 48.8%
+	2700/Burunduk3		74/97   = 76.2%			55/85   = 64.7%				25/54 = 46.3%
+	2800/LayCurse		202/223 = 85.5%			141/216 = 65.2%				32/96 = 33.3%
+	2900/Vasyl[al..		202/219 = 92.2%			164/203 = 80.7%				50/82 = 60.9%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------Where is the optimal road?------------------------------------------------------------------------------
+In FCICU, We have long debates around:
+	How to start the new students training?
+	How to redraw our training plan for better performance?
+
+How to train the students to be capable of solving tough problems?
+	By tough, I actually don't mean the hard problems that the seniors can solve,
+	rather the ones that most of time we "can't" solve (e.g. Div1-1000 in TC).
+	By seniors, I mean the best coders cross the last 4 years, especially active ones. See Topcoder ranks.
+
+	So we are trying to find the way to our selves to do better, so that we could push the students on a better road map!
+
+	The answer is still not totally clear, we have no one in:
+		The top 10 in ACM ICPC
+		A real stable red coder (2600+)
+		A finalist in one of onsite contests (Google Code Jam, TCO).
+
+	A talk with some world finalists and their coaches about their training
+		show that no big difference in training material & style, although big difference in performance!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------So what is the miss? -------------------------------------------------------------
+
+In my opinion, mainly the THINKING skills. It is well known that TC doesn't depend highly on knowledge of algorithms.
+
+We in FCUCU, could meet some stable red coders, who doesn't know half of algorithms we administrate!
+
+We need to re-engineer the training process. Inspect what is wrong, and re-plan based on that.
+	
+We should focus on thinking skills, and any training doesn't enhace that is useless.
+
+Seniors from egypt, should have a regular meeting talking about their training styles, and how to imporove it!
+
+We may assign different training plans for different universities, and see how is improvement!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------Passing the equilibrium -----------------------------------------------------------
+
+You have lots of things to do, and your level just may be similar to one of top current seniors
+
+Being competitive against seniors, may require hard practice.
+
+Passing them, and exceeding current "equilibrium" stage, may need:
+ 	 HIGH utilization for their experience +
+ 	 	May be a different training plan!
+		May be acquiring some other skills!
+		May be just a different "behavior" in training and real contest
+
+The only thing that the best coders calim:
+	Practice and Practice and Practice and ....
+	Practice makes perfect
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+---------------------------------------------On my side -------------------------------------------------------------
+
+I Claim that, a Practice could be hard, and could be smart. To Practice smart NOT hard, you need
+	DISCIPLINE
+	SELF MONITOR
+	
+	What do I Mean? This what I will talk in depth about it. Our next talks will be around:
+	
+		How is the FCI-CU training under Eng Wahab (aka felga)
+		My criticism on the FCI CU Training
+		My proposed training plan and the main Principles to apply
+		
+		Tackling a problem statement, step by step
+			Reading a problem statement
+			Thinking tools & skills
+			Solution verification
+			Solution implementation
+			Errors inspection list
+			
+		History recording
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+---------------------------------------------Then where will you end? -------------------------------------------------------------
+
+Don't Know!
+
+May be to same as we ended
+	May be better!
+	
+All what I could do, is knowledge & experience transfer
+	
+It is your turn to make use of it
+	TO avoid repeating & exploring what we did and just gaining similar skills
+	TO have opportunity to explore what we did not have time to do
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

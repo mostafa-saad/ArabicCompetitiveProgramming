@@ -1,0 +1,273 @@
+-------------------------------------------------------------General Inspection-----------------------------------------------
+
+	*) Do you Terminate before reading whole input? Do you break while reading, and test case is not fully read?
+	*) Correct input file / Correct input copy
+	*) Correctly initialize between test cases
+	*) Correct reading: E.g. scanf("%d ", &cases); Space is correct in this Input file?
+	*) Tested corner cases?
+	*) If you take something from libaray that does not mean it is 100% right
+	*) If you take something from libaray, Revise its comments & prerequisites
+	*) Validate:
+		*) Input stoping conditions
+		*) Functions base case / Problem Logic Lines.
+		*) No TYPO
+		*) Used data types enough to avoid overlfow
+		*) operators *, ^, /, %
+			*) /0, %0, /EPS, (n)%x, (-n)%x, +/- EPS
+			*) *, ^, counting problems = Overflow
+		*) Results fit in 32bit operations, what about intermediate values?
+		*) Correct OO Value. Intial value when u maximize & minimize
+		*) x%m is X negative? Given Matrix A, find (A^b)%M, Make sure A is intialized correctly in case negatives
+		*) if(x%2 == 1) ..	What if x negative value?
+		*) Set or Multiset?
+		*) Wrong pair comparisons: pair1 > pair2, does not check both elements for larger
+		*) truncate or approximate, double issues, watch out from -0.0, Floor(-2.3) = -3 but Floor(2.3)= 2
+		*) not a number(NAN) which comes from sqrt(-ve), (0/0) ,or cos(1.00000000001) or cos(-1.000000000001)
+		*) lp(i, n) lp(j, i+1, n):  is there at least 2 elements? Do you need special handling?
+	*) Percision problems
+		*) You should calculate the worst percicion. E.g. 1 / 10^9 / 10^5.
+		*) Avoid doubke operations if possible: e.g. integer floor & ceil - even with indepth replacement.
+		*) try to do double operations as local as possilbe
+			*) e.g. sum all vs sum part + call(nxt)
+		*) couting the doubles changes little thier value
+		*) Do binary search to 9 precision, and display x*100. output is only 7 precision
+	*) BFS with more than one start state
+		*) Make sure they are all of same depth
+		*) Make sure, In case lexi answer, that you use priority queue
+		*) Do we need to validate the intial states?
+	
+	
+-------------------------------------------------------------------WA----------------------------------------------
+
+	*) Pick a moderated examples, and do problem semantic tracing.
+	
+	*) Sometimes your added tricky code to make programming easier is just a KILLER BUG
+		*) TRY to validate your fancy added code to avoid debugging for silly mistakes
+		*) E.g appending a 2d strings array to make it a complete 2d.
+			*) Take care, is the appended character part of input? Does it matter?
+			
+	*) If u have direction array, Does order matters?
+			
+	*) OVERFLOW
+		*) Read numbers N < 2^M where M = 60
+		*) Manpulating bit masks with N >= 32, E.g. 1<<40
+		*) Multiplications( cross product ) & powers & Base conversions.
+		*) Is whole code handeled for OVERFLOW or it is a mix of int and LL ?!
+			*) 1<<x or 1LL<<x
+		*) Correct overflow handling
+			*) E.g use if( a*b > OO)  or  if( a > OO/b)
+			*) E.g use if( a+b > OO)  or  if( a > OO-b)
+		*) Input is a 32 integer bit
+			*) yes, using int x; will be sufficient, but take care from Integer range
+			*) int x;	cin>>x;	x = -x;			code(x);
+			*) What if x value = -2^31 --> -x = 2^31  which is OVERFLOW
+		*) Exhaustive adding
+		*) Final answer fit in 32bit but intermediate results don't (e.g. polynomial evaluation)
+	
+	*) Wrong stoping conditions.
+		*) Test ends with TestEnd and input with InputFinish. What if such words inside the main input also.
+		*) You may need to read 5 numbers if any is valid, u alert
+			*) lp(i, 5) { cin>>x;	if(!valid(x)) { ok = 0; break;} --> What about output REMINDER?
+		*) Read until number is less than 0, if(n==-1) break  --> if(n<0) break;
+		*) Read until x & y & z be zero
+		*) Read until one of x or or z is zero
+		*) Read untill Input L, U is L = U = -1
+			*) Stop if(L == -1 && U == -1)	break;
+			*) Check if input like L = -2, U = 3 is valid or not
+			*) E.g Number of primes in range [-2,3] = 2
+		*) Each block will be terminated by a line starting with e.
+			*) e
+			*) egg
+		*) Each block will be terminated by a line containing #.
+			*) #
+			*) Is this tricky #?
+			
+	*) Tricky text description
+		*) word is "sequence of upper/lower case letters.
+			*) This means ali is 1 word, X-Ray is 2 words, ali's book is 3 words
+		*) Given 2 integers i, j, find number of primes between them, or in RANGE
+			*) Input can be 4 200 OR 200 4
+		*) Given N*M grid, Read N lines each start with M chars. E.g. 3*2
+			*)1st line -> ab
+			*)2nd line -> cdEXTRA		// use to depend on read N, M, as RE may happen
+			*)3rd line -> ef				
+		*) Do not accept leading zeros numbers?
+			*) Do not accept 004, but accept 0 (special case)  		
+	
+	*) Geometry
+		*) Is there duplicate points? Does it matter? Co-linearity?
+		
+	*) Graph
+		*) Connected or disconnected?
+		*) Directed or Undirected?
+		*) SelfLoops?
+		*) Multiple edges & thier effect (MaxFlow sum, SP min)
+		
+	*) Percision
+		*) Watchout -0.0
+		*) int x = (int)(a +/- EPS) depends on a > 0 | a < 0.
+		
+-------------------------------------------------------------------TLE------------------------------------------------------	
+	
+	*) May be bug and just infinite loop
+	*) Can results precomputed in table?!!!!
+	*) Function calls, may need refrence variables.
+	*) % is used extensivly? memset is used extensivly?
+	*) What is blocks of code that reprsent order? Do we just need to optimize it?
+	
+	*) Big Input file
+		*) Need scanf & printf
+		*) Optimize code operations
+		*) Switch to arrays and char[]	
+	
+	*) DP Problems
+		*) Do you clear each time while it is not needed?
+		*) Clear only part of memory u need, not all of memo or use boolean array
+		*) The base case order is not O(1)
+			*) make sure if(memo != -1) before base case
+		*) Use effective base conditions
+			*) E.g If you are sure dp(0, M) is X, do not wait untill Dp(0,0)
+		*) DP state did not change, so infinite loop
+			*) DP(i) call DP(i+s) where s [0-4]
+		*) Return result % 10^7, So each time you do operation, you apply %
+			*) if DP is huge, change to while(ans >= 10^7) ans -= 10^7
+			*) If mod is 2^p-1, use bitwise
+				
+	*) BackTracking
+		*) If you have diffrent ways to do it, try to do what minimize stack depth
+	
+	*) Graph problems
+		*) Generate dynamic sub-states (edges) only when necessary
+		
+-------------------------------------------------------------------RTE------------------------------------------------------	
+		
+*) Correct input file?
+*) Array index out of bondry
+	*) Make sure to have correct array size. E.g. If indexing N 1 based, arr[N+1].
+	*) Make sure no wrong indexing < 0 || x >= n
+		*) Find Primes in range[-2, 3]
+		*) Find factorial -5!
+	*) In DP, memo[X][Y], check you access dimensions correctly
+	*) In DP, if u have invald states, make sure to filter them before checking the memo
+	*) Stack overflow from infinite recursion
+		*) Visited array not marked correctly
+		*) DP with cyclic \ wrong recurrence
+	*) You have data structures that requires huge data
+	*) /0, %0
+	*) Extensive memory allocating until RTE
+	*) Using incorrect compare function (e.g. return that return (A, B) same answer as (B, A) )
+	*) Use unintialized data: int x; v.resize(x);	cin>>x;
+	*) Watchout, if multiset contains (3 3 3 3 6 9) and u delete 3 -->will be (6, 9)
+		*) To delete one item, use iterator to find & delete it
+	*) struct T {	int A[];	};
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+--------------------------------------------------History Recording and Revision--------------------------------------
+
+Imagine:
+	After some years of hard practise, you solved like 1000 problems!
+		1000 problems will typically are great expereince. Ideas from every where, different zone challenges.
+		Imagine you were solving a problem that you solved before, but you did SAME mistakes you did before! 
+			Or couldn't solve it without getting same hint!
+			Then, you did not fully utilize your expereince from the 1000 problems!
+			Following are some tips!
+
+History Recording
+
+	It is very useful to record lots of statistics about what you solved. Maintain a file for all problems contains:
+		Problem Statement ID / URL
+		Problem Statement Text Level (Easy, Meduim, Hard)
+		Idea Level
+		Code Level
+		Problem Solution Category (e.g. branch and bound Search)
+		
+	In the source code of a problem, write Idea Sketch for hard problems. Make sure it is clear.
+	Always name your source codes with problem IDs. E.g. TC problem 350_D1_3.cpp. UVA with its ID (e.g. 10123.cpp)
+		
+	Maintain 2 files for every category. E.g. for Graph Theory:
+		Graph Theory Problems. Cluster it to the above 3 levels. List the problems.
+		Graph Theory Ideas. Wrirte down every hard problem you suffered from till AC. Write problem ABSTRACT and solution skech.
+			
+	In the future, you could practise over whatever you want, just open your files and target a problem.
+	
+History Revision
+	
+	One of the success is keys is History Revision. Through it, you may do:
+	
+		1- Check some hard problems for a category, then make sure that idea is present in your mind.
+			If needed, resolve the problem. This highly improves your level.
+		
+		2- Think in improvement for code & idea.	
+			Many times a problem could be solved in many ways and written in many ways.	
+		
+		3- Connecting Ideas.
+			When you revise abstracted problems in one of categories and sketched solutions, try to think in ideas relations.
+			Even, try to think corss categories. You could connect something from DP to a solution in max flow
+			Generally, when you learn new somthing, think how it is connected to every thing you learned! 
+		
+		4- From experience to knowledge:
+			Typically we study and then practice so we gain experience
+			It is very powerful to try to reorgainze the experience in knowledge format again.
+			2 benfits for that: 
+				1) You don't either lose the experience due to solving alot, or feeling mess due to lots of notes about problems
+				2) When learnning new generations: You transfer basic knowledge + knowledge from experience -> Then they work higher challenges.
+				
+			As an example, when you read textbooks for dynamic programming, you may read about 4 problems that represent 2 recurrence styles.
+				When you solve, you will discover dozen of recurrences and challenges. Convert them as knowledge.
+		
+		
+		
+		
+		
+		
+		
+		
+		
+--------------------------------------------------Contest Strategy--------------------------------------
+
+As per contestant, we should have displine in tackling a problem.
+	Team too should have displine in behaviour.
+		Every team should relaize its skills, and develop strategy and practise it.
+		
+
+E.g. following is a TerminalManStrategy - one of dozen stratigies to try.
+	Note: 	This was my team strategy in Regionals 2010.
+			TerminalManStrategy means the fast member (e.g. meeda) on PC and others are thinking and preparing staff for him.
+				We used this plan to utilize the special skills in the teams.
+
+	1- Meeda will setup the environment, and write the template.
+	2- Mostafa will sort the problems, and give a problem to Yasser and read another one.
+	3- Team should manage reading all problems within 1st hour, discussing all problems (except n+1's) within another 30 minute
+	4- If Mostafa or Yasser found an ace before Meeda finish they will give it to Meeda to solve it.
+	5- If Meeda finished before finding an ace he will take the next problem to read.
+	6- Mostafa and Yasser will be thinking and if they got a solution for a problem they will add it to Meeda's queue.
+	7- Everyone should estimate the size of code & time carefully as much as possible.
+	8- Meeda should utilize scoreboard as main guide for solving problems, and in case tie, work on shortest first
+	9- Before writing any problem, Meeda should read the problem statement, input and output sections again.
+	0- If Meeda finished writing a problem, Mostafa or Yasser will join him to review his code and put some corner cases.
+	1- Yasser pipeline if: Meeda got stuck in a problem, or other teams can beat our score in case tie of problems
+	2- Once Meeda's queue is empty, he joins the team and work in pair style or triple in last 1.5 hour
+	3- Yasser and Mostafa keep working to sketch problems solutions until discovering n+1's problems
+	4- Yasser and Mostafa work hard to find the easiest n+1, and write its code & revise it very well
+	5- once Meeda finished all medium problems, all team work on writing the n+1 problem together
+	6- After each hour, break-point is done to check team status and other teams scores & accepted proplems
+	
+	In Case WA Status:
+		1- Fast revise for: Corner Cases, Limits, Output Format should be considered (May be original reader of problem join that) [10 Min]
+		2- If no bugs, If Stress Test is effective, DO IT. [Max 10 min]
+		3- Original reader of problem should get a printed copy and debug, while Meeda Navigate to next [10 Min]
+		4- If no bugs, Pend the problem, and later, 3rd member may debug code or rewrite it from scratch
+	
+	Notes
+		- Don't let a problem kills the team time

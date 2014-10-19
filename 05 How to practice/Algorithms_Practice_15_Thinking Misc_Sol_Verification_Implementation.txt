@@ -1,0 +1,109 @@
+--------------------------------------------------Thinking - Misc--------------------------------------
+
+1- The Brute Force solution
+	One of best ways to think about the problem, is the Brute Force solution
+		Even if you think it won't be the solution, or not practical at all
+		In many cases, solution is the BF one, but improved based on observations / clever coding.
+		It needs minimal thinking, hence push your mind to start from trivial to complex -> avoid OVERESTIMATION
+		In worst case, BF let your mind swim in something, rather than stucking!
+		
+		Think in BF ITERATIVE and RECURSIVE. Think about Search space & Search State
+
+2- The similar problems - advantages & cautions
+	Sometimes, when you read a problem, you know you met a SIMIILAR problem
+	Sometimes, it is an advntage that you worked your mind in such problem and have some properties about it
+	Many times, you use your old solution for the new problem, and fails, because you need to ask:
+		a) what exactly was same in old problem
+		b) what is different? How these changes may CHANGE the solution
+	DON't let the similar problem MISLEAD you
+	
+3- Still Stuck? Try to re-state the problem defination in 2 or 3 different ways, and see if this helps.
+
+3- Still Stuck? Do BF & Observe. Write the impractical BF solution, and try to find a pattern for answer / useful fact
+
+4- Still Stuck? Do Guess & Check. Guess some ideas & assumptions, do extensive verification over test cases.
+
+5- Still Stuck? Iterate on your algorithms list, see if it could be the solution.
+
+6- Be careful in analysis for solutions. You may discard a correct solution
+	E.g. Calculated O(n^3) although it is O(n^2logn)
+	E.g. Calculated recusion depth wrongly, then DFS seems to be TLE/RTE
+		
+
+7- Sometimes you work with so BIG N, or your Order is BIG, some tips & tricks:
+
+	- Check Exact # of operations Not the Order?
+	- Check for Reduced variables & Constrained input combinations
+	- Check calculations sparsness & symmetry (e.g. Powering a matrix result in 6 unique values, and all others are repetitive)
+	- Reference of locality tricks
+		- Order loops such that: loops don't pass over arrays is in depth. Watchout from Col-order accessing
+		- May dublicate some memory to switch some col order to row order
+	- Pre-computation
+	-- Full, Partial (Range Props)
+	-- Preprocessing
+			*) You can think in precomputation in input like {N<500 or A,B < 30) 
+			*) Think in all kind of precomputation and try to utilize any of them.
+			*) Think in partial preprocessing/precomputation 
+				*) Divide to SQRT(n) ranges and calc reminder in time
+				*) Calc on machine a small temp array that help you in run time
+					*) A[10], each answer is answer for i*10^6 
+			*) In Query problems, consider sorting quries TRICK
+	- Clever tricks
+		- Say we have 3 loops of 2.5 * 10^8 operation which is byond accepted 10^8 operation.
+			- Say there is some break conditions there, you may think how to
+				- Order loops
+				- Order data (e.g. sort array or reverse its sort)
+				
+				Such that loops break so early as much as possible. E.g. SRM421-1-2(CakesEqualization)
+
+--------------------------------------------------Thinking - Solution Verification--------------------------------------
+
+Finally Found a solution? Wait!
+
+	The most common case for contestant is to rush to code it! Ignoring Verifying the solution.
+	
+	But before you verify, you should remember KISS! Could we find something simpler!
+	
+	Verfying the solution requires:
+		1- Test cases Verification(Ones in statement, boundries, yours)
+		2- Solution Order: Time & Memory
+		3- Full logic & intuitive Revision
+		4- Correctness, at least good intuitive - Assumptions validations
+		5- In case recursive code, does depth fit?
+		6- In case (*+^) operations, Any overflow(intermediate & output)
+		7- In case Double /, Is precision fine?
+		
+--------------------------------------------------Thinking - Solution Implementation--------------------------------------
+
+Again: Discipline + Out of comfort zone is the key for your level improvement
+
+Write now, you r supposed to have a verified idea. Before moving to coding it, you need to have FULL vision about code.
+
+1- Start to think about code blocks, the "repeated" ones, and the code order
+2- Think about little different ways to do it, especially when you think you do lots of code for sub-target.
+3- For every block out of your comfort zone, Write full code on a paper 
+
+
+After Implementation
+	1- Revise code order & logic. Make sure it matches what you intended
+	2- Challenge every block of code. Never to read in a way that dop even ONE character
+	3- Think how this block of code may fail. Think in corner cases of it (E.g. this A/B...could B = 0?)
+	4- Revise data types, especially in overflow problems
+	5- Be careful from /, % for RTE, +, * for Overflow, Integer Division instead of doubles.
+	6- Double comparison, percision of +- numbers [(int)(a +/- EPS)]
+
+Testing
+	Test special cases. Testing the boundries is a must + revise SPECIAL CASES.
+		E.g. Given X --> Test -a, 0, +a, and specially MAX of -a, a
+		E.g.Board N*M --> 1*1, 2*2, 3*3, 1*M, N*1, N*M. 
+		E.g. Given sequence of numbers --> test distinct, repeated, 0-length seqs, N-length seqs, all pos, negative, mix
+		
+Failed?
+	Check Error Inpsection List
+	
+Got accepted? Tips for Improving your self Further
+	1- Try to make code shorter. Check other coders available codes, like in TC, learn from it. 
+	2- Try to make code faster. In site like SPOJ and UVA, you could know the fastest solutions. Challenge yourself
+	3- Check if possible for other approaches for the solving. E.g. See Forums / Editorial.
+
+		

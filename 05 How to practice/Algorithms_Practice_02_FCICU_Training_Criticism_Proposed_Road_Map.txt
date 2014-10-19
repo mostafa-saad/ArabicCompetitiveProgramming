@@ -1,0 +1,413 @@
+/*
+ *
+ *
+ ******************************************** Licence *******************************************
+ * 																								*
+ * This File is part of Algorithms Arabic Video Series											*
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * 																								*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ * 																								*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * 																								*
+ * 																								*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * 																								*
+ * Mostafa Saad Ibrahim © 2013																	*
+ * 																								*
+ ************************************************************************************************
+ *
+ *
+ */
+ 
+ -----------------------------------------Introduction -------------------------------------------------------------------------
+
+Basically, A problem could be classified by its level: Basic, Medium and Hard.
+
+Also, we could classify a problem by its category:
+	1- Adhock.
+	
+	2- Data structure problems (Trie, Heaps, Disjoint-set, BIT, Segment Tree, Balanced Trees, ...)
+	
+	3- Algorithms problems.
+	3.1- Search algorithms (BF, Bi/Ternary Search, Golden section, Backtracking, DFS/BFS, Meet in the middle...)
+	3.2- Optimization algorithms (Greedy, DP, Branch and bound, Divide and conquer...)
+	3.3- Sub-Field Algorithms: Graph Theory, Geometry, Game Theory, String Matching...)
+	
+
+An easy adhock problem may require direct manipulation of an array or simulation, ....
+A hard adhock problem may require careful analysis and finding the correct observations & properties.
+
+For algorithms, an easy problem could be direct representation for the problem (e.g. find shortest path).
+A medium one may require a correct "abstraction" of the problem, and identifying the correct algorithm.
+A hard one may be once tough to recognize the algorithm, and another time for some tricks/calculations to apply it.
+
+Generally, a hard problem, could be a hard one from the above 3 categories or assembled of them!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------FCI CU Training------------------------------------------------------------------------------
+
+Staring from 2007, the training in FCI moved to a "permanent" state. we practice & practice all the time.
+Training was as following:
+
+	1- A Knowledge Phase
+
+		In this phase, we work on Data Structures & Algorithms. Coach explains all algorithms we know.
+		Every year we learn new algorithms. Right now, we mastered a very big number of algorithms.
+
+		After each algorithm, we keep solving problems on it, hence mastering easy & medium problems easily.
+
+		NOTE: Why this phase is highly important?
+			Because a team who doesn't master algorithm most probably won't be first neither in regional or ICPC WF
+
+	2- A Marathon Phase
+
+		In many years we have a marathon, that all of us keep solving.
+		Like TJU marathon, SPOJ marathon, DPs marathon and WorldFinal marathon.
+
+	3- The International Fegla Home Local Contest
+
+		3.1- Individual training phase
+
+			In this phase, we do lots of individual ACM-style contests (usually easy for a team, hard for a person).
+			We measure lots of statistics, like speed, solved from first time, total  solved.
+			After this phase, we know contestants levels, who is really active and who doesn't care with training.
+			Teams are selected based on statistics & coach experience & our preferences.
+
+		3.2- Teams training phase
+
+			In this phase, we do lots of ACM-style contests as a team. Having many teams makes high challenge & spirit.
+			
+			A team should work according to a strategy, a displine in interacting with the problem set, team status and the scoreboard.
+				Th team strategy may differ from a team from another
+				Regional Contest Strategy differ than World Finals Contest per same
+				Later, may be we talk about team stratigies.
+
+By end of this training, we cover most of the ACM ICPC regional Contests available on web.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------Criticism ---------------------------------------------------------------
+Our performance in the regional contests:
+	on average, ~7/10 solved problem per top teams.
+	Fatal Mistakes: Due to having 3 contests per week, rarely working on the problems that we couldn't solve!
+
+	Although later we have a "Tough Problems Marathon" where we collected the problems that we did not solve before
+		most of problems were solved by 0-2 only persons!
+
+	Improving the THINKING skills most of time was left for us. We never have a train goal: Enhance your thinking skills.
+		E.g. In Marathon phases, when someone fails to solve a problem, he simply asks for a solution, and got it completely.
+		By time, we solve some tough problems based on ideas & skills acquired cross years.
+			We are so fast, when we see a bit similar idea to what we faced in last solved problem.
+		Whenever we met a problem that requires lots of pure thinking, e.g. finding observations in the given problem domain,
+			Success rates decreases highly. Tough Adhocks always were source of annoying.
+			This is one of important reasons for our status in TC, where critical observations in Div1-500 and 1000 are a must.
+
+My Comments on knowledge phase
+	1- We don't give attention to adhocks, except by solving it in a contest, finally there is nothing to explain!
+
+	2- We give intuitive about how algorithms work, but not their proofs.
+
+	3- Due to stress of many algorithms & problems to practice, we read nothing about their FULL proofs
+
+	4- Also Due to stress, "some" of us may deal with "some" algorithms as a black box, instead of full understanding it
+
+	5- Knowledge Phase fills students mind with lots of knowledge, although we are not sure yet from their "thinking skills".
+	   Definitely, algorithms will enhance their thinking skills, but i think, will be very limited to:
+	   a- Ability to "recognize" the algorithm that solves the problem
+	   b- Ability to "adapt" the standard algorithm to solve the problem (e.g. Max Flow graph tricks, Dijkstra State)
+
+	6- Skills of analysis and finding adhock observations are dropped, only enhanced based on what we solve.
+
+In ACM ICPC World Finals
+	We could solve offline lots of world finals problems. Check the summary sheet.
+	In onsite contest, our team members ALWAYS perform so bad!
+		Per a WF contest, a team could find solutions for at least 5 problems!
+		But they end with 1 or 2 solved, some WAs, and some ideas with no time to write!
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+---------------------------------------------Proposed training plan ----------------------------------------------------------------
+
+I will try to summarize ideas that I acquired during last 6.5 years
+
+By utilizing them, you may compete powerfully against current seniors, but not highly exceeding them
+
+You may understand & apply the mentioned tips, but you must fix and update them - write your owns!
+
+When ever you have opportunity to talk with coaches & top topcoders (E.g. in World finals), ask as much as you can:
+	about their training styles - scientific background - what makes them strong?
+	
+	
+	
+										My proposed plan
+						
+1- We should focus on enhancing the thinking skills
+
+2- Fresh Student should be highly oriented toward pure (adhock) problems.
+2.1- Coaches should select carefully a big set of adhock problems, ordered by required thinking and analysis for students.
+
+3- Focus on their coding & debugging skills
+3.1- Students should be familiar with the language they are using
+3.2- Must be aware with its data types, their representation, available algorithms and their complexity
+
+4- Students should also got introduced to basic algorithms, but considering the following:
+4.1- Ratio of solving adhock problems to acquiring knowledge is 75:25
+4.2- They should master Search & Optimization techniques first.
+4.3- Later introducing basics of data structures and basics of algorithms in different areas (e.g. Trie, Graph, ..).
+
+4.4- When ever students study a new algorithm:
+4.4.1. Make sure student understand how and why it works
+4.4.2- Initial understanding to the algorithm intuitive
+4.4.3- Doing basic problems to test the idea and code
+4.4.4- Moving to the theoretical part is the critical. We must fully understand algorithms proofs.
+4.4.5- Introduction to algorithms is one of best books. Solving exercises is mandatory.
+4.4.6- Solving more complex problems
+4.4.7- It may be better to tackle a problem on your own, and getting little hints before getting whole picture!
+
+5- Mathematics opens the mind. Read in one of good books, e.g. Concrete Mathematics.
+
+
+In fact, regadrless of a plan guidelines, the point I extremely care about is the THINKING SKILLS development.
+
+So far, we don't train students on pure thinking, and how to clearly optimize the mental process of tackling a problem.
+
+Students acquire such skills indirectly through continuous practice. 
+
+Most of seniors are stuck in their levels, improving in a slow rate.
+
+Although they are getting better, this is not clear as a rank against others
+	As problems too got harder over time
+	Also, other Contestants improves too
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------Principles to APPLY during training---------------------------------------------------
+
+1) During Learning new staff
+	Never to Memorize. Always understand in-depth the algorithms & adhocks.
+
+2) Never to use library
+	Never to copy even 1 line from your library, write down every thing from your mind.
+	This is a great way to refresh the knowledge in your mind.
+
+3) Vision
+	Never to train randomly, this chaos will improve you slightly.
+	Ask your self, what is target of my current training? It could be:
+		1- Learning new staff
+		2- Mastering what you learned
+		3- Improving thinking skills
+		4- Improving Reading / Coding / Debugging skills
+		5- Improving speed
+
+	Have a plan: E.g. I will work over SRMS 300-350 for purpose XXXX
+
+4) Avoid stress
+	In real contests, you are under stress due to time deadline.
+	Stress = Mistakes
+	In Contest: Don't rush / Don't panic / Relax
+	In training: Either you are Improving speed or are not
+		Don't let time stress corrupt your training
+		You don't need to get faster. You need to write correct solutions. Speed comes later.
+		By training, your level becomes better, and Quickness will come by "itself" eventually
+		Exceptional speed requires a separate training: E.g. Solving 100 - Div2 250 problem
+
+5) Practice as if you are in a contest!
+	E.g. Don't submit a solution, unless you are confident, as if you are in a contest
+	Don't let time span for hours without actual progress. Don't do other activities during solving a problem
+
+6) The power of challenge spirit
+	Only who dreams big, go bigger
+	If some one says "ignore the Div1-1k, I will never solve it!", 	-> Do you think you will be TC target one day?
+	
+6) Training source
+	Different online judges have a variety of problems types, levels and styles.
+	Training one one judge is a FATAL mistake. At least Approach problems from different styles E.g. (TC, UVA, IOI)
+
+7) Training Balance to avoid Underestimation \ Overestimation problems
+	Typically new guys do underestimation when trying a hard problem.
+	The intersting is when experts do overestimation on easy problems.
+	A balanced training plan that consider mix of skills / mix of judges / mix of problems levels is the best.
+	
+8) Self Monitoring
+	One of the most important tips! 
+	KEEP revising yourself: your stratigies in reading, thinking, coding. Your training plan. Keep revising.
+	
+9) Zone of proximal development
+	Problems are of 3 types:
+		1) Problems you could solve easily
+		2) Problems are bit hard for you, but you finally could do them, but may be with some help
+		3) Problems that you can't do them
+	
+	2nd and 3rd types are out of your comfort zone
+	Training:
+		On 1 is useless if was not for either balancing or for speed
+		On 3 is wasteful, the effect over your performance is so small
+		On 2 is the target of training.
+		
+	Think in ZPD for every thing to improve it: Reading, Thinking, Coding, Debugging...
+	
+10) The worst approach ever
+	Open a problem, Read, Think, Code, fails, update idea, recode, still wrong sample, debug, fine sample, submit, WA, rethink...
+
+	Random Behaviour = Chaos -> Chaos = Slow improvement
+	Discipline is the key for proper imporvement.
+	
+11) The Discipline
+	A systematic way to follow.
+	
+	Unfortunately, our mind is already systematic - even chaos is a way of thinking!
+ 	 All what you face during your education highly affect your mentality
+ 	 Your interaction with life problems or games you play also affect you
+ 	 ...
+
+	Imagine that for a given problem statement, there are:
+	 	 set of paths of optimal thinking ways to {read / understand / find an idea / Implement / Pass} it
+	
+	On the other hand, every contestant have his current thinking methodology
+	
+	A contestant should push his algorithmic thinking toward the optimal way - which he doesn't know.
+	
+	A "smart" practice is the only way to let your mind find one of these optimal paths, hence achieving a great performance.
+	
+	Sure even best ever coders in world do mistakes & "blame" their selves (see Petr blog)
+	
+	In the begin, practicing for a discipline is hard, you want to do SHIFT to your mentality
+		but over time, it will definitely be part of your thinking methodology
+	
+12) Work Smart not Hard
+	You may work day and night, and see some of your friends with little effort, but great performance!
+	Always think, how to train in a SMARTER way? How to make performance better?
+	
+	Work smart not hard = Zone 2 + Self Monitor + Discipline	for EVERY solving phase
+
+
+NEXT
+	Tackling a problem, phase by phase.
+
+
+
+
+
+Links	
+	http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=dissectProblem
+	http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=importance_of_algorithms
+	http://petr-mitrichev.blogspot.com
+	http://en.wikipedia.org/wiki/Zone_of_proximal_development

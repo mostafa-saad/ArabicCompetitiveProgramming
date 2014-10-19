@@ -1,0 +1,40 @@
+/*
+ *
+ *
+ ******************************************** Licence *******************************************
+ * 																								*
+ * This File is part of Algorithms Arabic Video Series											*
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * 																								*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ * 																								*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * 																								*
+ * 																								*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * 																								*
+ * Mostafa Saad Ibrahim © 2013																	*
+ * 																								*
+ ************************************************************************************************
+ *
+ *
+ */
+ 
+ --------------------------------------------------Thinking - Problem Reverse ---------------------------------------
+
+Problem Reverse is to think backward in the problem definition.
+
+E.g. What is probability of event X occurs.
+	Reverse: What is probability of event ~X. Answer is 1 - ~X. Sometimes Calculating ~X is extremely easier than X.
+
+E.g. We have 2^N subset, find subset with property X (e.g. # 1s are 5).
+	Reverse: Find subsets with property ~X (e.g. # 1s != 5). Answer = 2^N - Count ~X
+
+E.g. Find Minimum Summation. (many times min/max are interchangeable)
+	Reverse: Total - Maximum Summation
+
+E.g. Given An "inc/decreasing" generating Sequence (Say Fibonacci), Given a value, what is its index in the sequence?
+	Reverse: Given an index, could you get its value? If so, Binary Search on X tell finding vlaue index
+
+Sometimes, problem is solvable through its main definition or reversed one.
+Sometimes, the ONLY way to solve it is its reverse.

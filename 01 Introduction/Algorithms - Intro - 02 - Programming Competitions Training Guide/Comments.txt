@@ -1,0 +1,22 @@
+This session is oriented to new comers in the community. I explain our FCI-CU training guide document, in links section. Please read whole document, and you will join environment smoothly.
+
+Content:
+Introduction
+Problem example
+Uva & Live archive & Spoj
+Topcoder
+How the judge works
+Eclipse
+Debugging
+How to get help
+
+Links:
+http://dl.dropbox.com/u/14991955/ContestsGuide.pdf
+http://www.speedyshare.com/wmaUm/ContestsGuide.pdf
+http://www.spoj.pl/
+http://uva.onlinejudge.org/
+https://icpcarchive.ecs.baylor.edu/
+http://www.topcoder.com/tc
+http://online-judge.uva.es/board/
+
+Note: Sorry for beebs, I recorded mouse clicks.

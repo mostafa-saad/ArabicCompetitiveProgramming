@@ -1,0 +1,99 @@
+--------------------------------------------------Thinking - Observations Discovery--------------------------------------
+
+In many cases, a hard problem is based on observations.
+	Actually, one observation may lead to a solution, while another lead to a different one.
+
+One of best ways to discover properties of a problem is through test cases TRACING.
+	Pick test cases one by one, from smaller to larger. Trace the sample & try to discover properties & patterns
+	As long as tracing new bigger sample helps you think/understand more, trace more. 
+
+Typically properties are adhock, and this what makes them hard.
+	E.g. the problem depends on a given triangle with certain construction steps, say similar to pascal triangle, findings its properties is the key
+	
+The worst scenario is when you dig for properties that is not the key for solution.  
+
+Sometimes, it is hard to discover the properties by analysis on papers. Try to write some SAMPLE code on PC.
+	e.g. bf solution and see the output - enumerating sequence elements to find pattern
+	
+	NEVER to start by the pc to find observations. Always try on papers, and move if stuck
+	Remember, code = bugs. So avoid big codes for observations, to avoid losing your time.
+	Your turn to balalnce between need to work on paper vs PC
+	
+Some popular properties:
+	Sparseness: E.g. You have State (X, Y) and move to State (X/2, Y/3). X, Y is 10^9, but we have only logX * logY state.
+				Constrained Input combinations: When not every input combination is valid.
+					E.g. Say input X <= N and Y <= M, typically we expect N*M possible inputs.
+						 But given is that X binary representation won't Intersect with Y Binary representation.
+
+	Symmetry: the output 2D array is symmetric - F(angle) is symmetric in [0-PI], the given sequence repeats in a symmetric way.
+	
+	Inference: Z = 2*(X+Y)+3, Height = Area(mask) / Width  ... then we don't need to think in the Inferenced ariables
+	
+	Redundancy: 
+		Button if clicked is on, if reclicked is off. Doesn't matter how many times clicked. Either even or odd clicks.
+		Clock moves, after some moves, it back to original	
+	
+	Independency: A problem could be simplified by relaizing its parts.
+	
+		Minimize some Manhatten Distance = Minimzie on Xs + Minimzie on Ys 
+		
+		F(Start, End) = F(Start, MID) + F(MID, End)		For every possible Mid
+		
+		In probability: When Trials are Independent then: sum of the expectations 	=		expectation of the sum
+		
+		Independent Games(Grundy)
+		
+		Adhock: Given set of words, align them. Given rule two align 2 consective words. Then, each word is dependent ONLY on previous word.
+		
+	
+	IO re-representation: E.g. Given Graph --> S/CC		- 	Given Array --> Sorted array - Frequency Array
+	
+	Given input graph, is it: Tree, DAG, Complete, Bipartite
+	
+	Given polygon, is it: Convex? Concave? General?
+	
+	Given X find smallest Y such that X%Y ... ? Then we care only with MODE
+	
+	Find numbers with property X? E.g. palindromes
+		a) You could try all Xs and check IsPalindrome(X)
+		b) Find properties of X to directly generate it.
+	
+	Find count of numbers with properties p1 & p2 (e.g. prime & palindromes)
+		how many p1’s? p2’s?, who to generate first?
+		
+	Find tuples with property: at least one of them >= D
+		Negation of = Find tubles with each one < D-1
+	
+	Find tuples with property: Each one of them <= D1 AND at least one of them >= D2
+		= Range Substraction of {Each one of them <= D1} - {Each one of them <= D2-1}
+			Note: Ys property = Don't Include !Ys. Double Negation. 		
+		
+	Is input built in algorithmic way? It may be the clue
+		Large 2D array, but it is just (N/5, N/5) repeated every where
+		Graph constructed by repeating certain operation
+		Sequence gernerated by certain formula: A[i] = oper(A[i-1])%D
+				
+	Splitting vs Combining
+		1 Big Object (e.g polygon) consists of N small Objects (e.g. triangle)? Can the N elements fit in big object
+			Try splitting big objects to small ones
+			Try to merge small objects in big one
+				
+	Atmost vs Exact
+		atmost(n) = exact(1)+exact(2)...exact(n)
+		exact(n) = atmost(n) - atmost(n-1) 
+		
+	Canonical Form
+		When you need to compare two things one-to-one correspondence think about CANONICAL form
+		
+	Fast Reduction
+		E.g. we have F(X), but it moves to F(X/2). Even X with 10^18, it finish in logX steps.
+		
+	Cycle tricks
+		Say we evalaute a^0 % n, a^1 % n, a^2 % n ....a%k % n. Let k > n
+			Then at some a^t = a^f where f < t. In other words, this mode value appeared before. So Sequence of modes repeats.
+ 	
+	Input Function Nature
+		Exponential
+		F(X > Limit) = Constant
+		Increasing Sequence
+		Unimodal Sequence: function that is either increasing and then decreasing or vice versa
