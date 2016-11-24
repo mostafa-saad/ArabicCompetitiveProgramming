@@ -1,0 +1,86 @@
+--------------------------------------------------The Optimal Desire--------------------------------------
+
+Let's check some Thinking paths.
+
+
+--------------------------------------------------Remember?---------------------------------------------------
+
+Adhocks vs techniques vs algorithms knowledge
+	Remember make it 75:25 training for adhocks vs techniques vs algorithms knowledge
+	And Approach much techniques before algorithms knowledge
+
+PROBLEM needs: Understand Statement + Thinking + Idea + Verification  + Implemententation + Debugging
+
+To be good, you must administrate the SKILL for each task
+
+From hardest: Thinking - Verification - Implemententation - Debugging - Understand Statement
+
+When facing a problem, it requires all the skills, each skill per a prolem is in one of 3 ZONES
+		Zone 1 - The skill is mastered at this level of (Thinking, Implemententation, Debugging ....)
+		Zone 2 - The skill is not enough with out little suffering and may be some hints - but finally manageable
+		Zone 3 - The skill is so weak for such challenge right now 
+
+To imporove your skills correctly, you need
+	Displine:
+		A systematic way to follow.
+		That is you develop guidelines to follow, and evalaute/update for every problem
+				
+	Self Monitoring
+		KEEP revising your stratigies in reading, thinking, coding. Your training plan.
+		
+
+You could practice many hours and has a slow progress!
+	It is matter for quality not quantity!
+	It is matter of smart work not hard work
+	
+Work smart not hard = Zone 2 + Self Monitor + Discipline	for EVERY solving phase
+
+------------------------------------------------------Compilation-------------------------------------------------------------
+
+We talked about Displine for reading, many thinkking tools, verification and implementation.
+	In real contest we can't check all the notes! We need a summary!
+	The most important displine is for order of the many tools! 
+		E.g. should we think in problem simplifications first or problem domain re-interpretion? Develop your own.
+		
+	Let's put all in one summarized document!	
+			
+-------------------------------------------------------How to practise to achive the goal------------------------------------------------------------
+
+Theoritically, when you face a problem, you should exhaust all your time till reach a "Stuck in thinking" State.
+	In this state, you can't do anything at all any more!
+	
+	You shouldn't declare to yourslef a fake "I am stuck"! Stuck means Stuck!
+	
+	In other words, if you administrated lots of thinking algorithms and tools..you should try them all.
+	
+	After declaring "I am stuck", you should summarize all what you tried and WHY you couldn't make use of it. 
+		E.g. I can't thing in problem reverse to try it!
+		E.g. I can't model it as a divide and conquer problem!
+		
+	Then you start to get hint by hint from editoiral/coach..and see how this could help. If couldn't get more hints.
+	
+	Once you read whole whole solution and understood it, you do ask your self the most important Q on the earth!!!
+		WHY I COULDN'T DO IT MY SELF?
+			It is you fault!
+				You did a mistake in calculations!
+				You calcutaed order wrong and discarded problem!
+				It is a divide and conquer but you did not think enough
+				...
+				
+			Or because it is something out if your skills!
+			
+		If it is first one, you should see how to do better next time!
+		Else, you should update your notes to manage it next time  
+	
+	
+Practically, this could consume much much time! From time to time, try to just do subset of these to solve a problem.
+	E.g. You may consider some algorithms? some thinking tools? You give each liek 5 min not more!
+	E.g. Sometimes you read whole algorithm once, and sometimes you read it hint by hint.
+	
+	So you do all these steps, but differs from problem to problem!
+	
+Finally, even when we solve the problem, we should ASK ourselves, how to solve it much faster next time!
+
+
+
+
