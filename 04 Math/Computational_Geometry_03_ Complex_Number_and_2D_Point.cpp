@@ -38,6 +38,14 @@ double angleO(point a, point O, point b) {
   return acos( fixAngle ( dp(v1, v2) / length(v1) / length(v2) ) );
 }
 
+double getAng(point &a, point &b, point &c) // find angle abc, anticlock bc to ba
+{
+    double ang = angle( vec(b, c)) - angle( vec(b, a));
+    if(dcmp(ang, 0) < 0)
+    	ang+=2*PI;
+    return ang;
+}
+
 int main() {
 
 	/*
