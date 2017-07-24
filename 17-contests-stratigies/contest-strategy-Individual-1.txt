@@ -1,0 +1,42 @@
+Following are some thoughts and "initial" guidelines for individual contest strategy.
+- It is your Displine
+- Adjust if want
+- Apply it per a contest
+- After contest, check your performance.
+- Adjust the strategy to handle the missing sceanrios (Monitor)
+
+====
+
+
+Some notes:
+a- A good strategy gets the problems AC (First submission) in terms of their hardness, relative to your knowledge and skills.
+b- Scoreboard can be very helpful (what is the next to solve) or misleading (a harder problem solved before easier one(s)). So don't trust it all the time
+b1- E.g. An experineced team might solve a hard problem of short code very early, but you need 1-2 years training to get it AC! You keep trying and fail, although easier ones not submitted so far
+c- Compete against the problemset not the scorebaord. Don't let scoreboard be a stress source for you
+d- Make checkpoints. Say every hour. Review your status and what is the right thing to do
+e- Sometimes, one might need to switch from one strategy to another based on team/contest status.
+
+
+Initial Strategy
+1- Open all the problems in tabs. Reorder them based on their text length (and your intuition, but don't avoid what you don't like such as geometry).
+1a- Sometimes, a very lengthy problem is one of the easiest problems.
+2- Start to read in your sorted order till find a problem that you think is probbaly the easiest (5-10 min problem in ECPC/ACPC - 30-45 min ICPC)
+3- Before coding, does the scoreboard inform us about a problem we did not read? If yes, check it. If no, go with the selected problem.
+4- Code. Test the problem (Add your cases/boundries). Submit. Hopefully AC. Now, What is the next?
+5- What does the scoreboard inform us?
+5a- If a problem is solved by many teams, be biased toward checking/solving it
+5b- Order the new problems by how many teams solved it. But, be very careful with ones that needed 3+ submissions till AC. Maybe unclear text, tricky problem, tight time limit..etc
+5c- If a problem is solved by few, be careful, it might be a trap. Solved by some junior teams? or all are seniors?
+5d- Decide if worth reading more unread problems or go\think with one of the solved problems that you know
+5e- Remember, problems have some reasonable order. If you scalled your first 2 solved problems as 2/10, 3/10. The next shouldn't be 6/10. So, if your selection is for a hard problem, this is not the right decision. Find the problems in the right order
+6- Go to 4
+
+Further notes
+- When you move to those hard problems, don't forget the scoreboard. Check it from time to time (say 10-15 min).
+- Plan to read ALL problems before X (1-1.5) hours passes from the contest.
+
+In Case WA Status:
+1- Fast revise for: Corner Cases, Limits, data types, Output Format, whole problem statement
+2- If no bugs, If Stress Test is effective, DO IT. [Max 10 min]
+3- Decide if we should left it for now or put little more time? 
+4- Don't let a problem kills your time.

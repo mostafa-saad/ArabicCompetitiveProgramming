@@ -1,0 +1,34 @@
+As per contestant, we should have displine in tackling a problem.
+	Team too should have displine in behaviour.
+		Every team should relaize its skills, and develop strategy and practise it.
+		
+
+E.g. This was my team strategy in Regionals 2010.
+	Code idea: the fast member (e.g. meeda) on PC and others are thinking and preparing staff for him.
+		   We used this plan to utilize the special skills in the teams.
+
+	1- Meeda will setup the environment, and write the template.
+	2- Mostafa will sort the problems, and give a problem to Yasser and read another one.
+	3- Team should manage reading all problems within 1st hour, discussing all problems (except n+1's) within another 30 minute
+	4- If Mostafa or Yasser found an ace before Meeda finish they will give it to Meeda to solve it.
+	5- If Meeda finished before finding an ace he will take the next problem to read.
+	6- Mostafa and Yasser will be thinking and if they got a solution for a problem they will add it to Meeda's queue.
+	7- Everyone should estimate the size of code & time carefully as much as possible.
+	8- Meeda should utilize scoreboard as main guide for solving problems, and in case tie, work on shortest first
+	9- Before writing any problem, Meeda should read the problem statement, input and output sections again.
+	0- If Meeda finished writing a problem, Mostafa or Yasser will join him to review his code and put some corner cases.
+	1- Yasser pipeline if: Meeda got stuck in a problem, or other teams can beat our score in case tie of problems
+	2- Once Meeda's queue is empty, he joins the team and work in pair style or triple in last 1.5 hour
+	3- Yasser and Mostafa keep working to sketch problems solutions until discovering n+1's problems
+	4- Yasser and Mostafa work hard to find the easiest n+1, and write its code & revise it very well
+	5- once Meeda finished all medium problems, all team work on writing the n+1 problem together
+	6- After each hour, break-point is done to check team status and other teams scores & accepted proplems
+	
+	In Case WA Status:
+		1- Fast revise for: Corner Cases, Limits, Output Format should be considered (May be original reader of problem join that) [10 Min]
+		2- If no bugs, If Stress Test is effective, DO IT. [Max 10 min]
+		3- Original reader of problem should get a printed copy and debug, while Meeda Navigate to next [10 Min]
+		4- If no bugs, Pend the problem, and later, 3rd member may debug code or rewrite it from scratch
+	
+	Notes
+		- Don't let a problem kills the team time

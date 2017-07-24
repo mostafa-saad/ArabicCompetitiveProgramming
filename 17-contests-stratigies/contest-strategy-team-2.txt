@@ -1,0 +1,24 @@
+The opening (1 problem, the ace)
+	Goal: Find the easiest problem
+	Ziad: Jump to the machine - prepare the code templates
+	Saad: order problems based on length
+	Saad / Hani: Inspect the problems very fast to find the easiest and push to Ziad to code
+	
+The early game (1-2 problems)
+	Goal: Catch the other 1-2 easy problems
+	Keep your eyes on the scoreboard for new ACs
+	Avoid/Minimize idea/code reviews -Ziad on machine
+
+The mid game (2-3)
+	Team members read at least 75% of the problems
+	Identify mid-level problems - reviewer role - code on paper - Owner types code to the terminal
+	Short codes directly to the machine NOT on papers
+	Check point after 1.5 & 3 hours
+	Read all papers by 1.5-2 hours
+
+The end game
+	Don’t open new problems if multiple non ACs
+	Start with 1-code-2-think with rotations
+	Switch to 3-in-1 when problems are very hard
+
+
