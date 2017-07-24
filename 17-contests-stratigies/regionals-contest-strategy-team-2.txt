@@ -1,3 +1,11 @@
+Assume Team skills
+	The 3 members are seniors: Very knowledgeable / skilled
+	Assume their order based on CF/TC profiles
+	Ziad = Fast coder, low rate of bugs, individual behaviour
+	Saad = Fan of analyzing, like pair thinking, Not fast
+	Hani = Not biased to a specific concern
+
+
 The opening (1 problem, the ace)
 	Goal: Find the easiest problem
 	Ziad: Jump to the machine - prepare the code templates
