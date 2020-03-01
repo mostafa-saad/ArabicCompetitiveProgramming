@@ -5,7 +5,7 @@ int main() {
 	int num;
 	cin >> num;
 
-	bool is_even = num % 2 == 0;
+	bool is_even = (num % 2 == 0);
 
 	if (is_even)
 		cout << num % 10 << "\n";
