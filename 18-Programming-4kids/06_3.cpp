@@ -2,15 +2,22 @@
 using namespace std;
 
 int main() {
-	int salary;
-	cin>>salary;
+	int num = 12345;
 
-	if (salary < 1000)
-		cout<<"you are poor\n";
-	else if (salary >= 1000 && salary < 20000)
-		cout<<"good salary\n";
-	else
-		cout<<"you are rich\n";
+	cout<<num/10<<"\n";
+	cout<<num/100<<"\n";
+	cout<<num/10/10/10<<"\n";
+	cout<<num/10000<<"\n";
+	cout<<num/100000<<"\n";
+
+	cout<<"*********\n";
+
+	cout<<num/10.0<<"\n";
+	cout<<num/100.0<<"\n";
+	cout<<num/1000.0<<"\n";
+	cout<<num/10000.0<<"\n";
+	cout<<num/100000.0<<"\n";
+
 
 	return 0;
 }

@@ -2,24 +2,22 @@
 using namespace std;
 
 int main() {
-	int salary;
+	// 8/3 = 2.6666666666666 ..... 6666
+	double num = 8/3.0;
 
-	cout<<"Enter salary: ";
-	cin>>salary;
+	cout<<num<<"\n";
 
-	if (salary < 1000)
-	{
-		cout<<"Enter age: ";
-		int age;
-		cin>>age;
+	int res = (int)num;	// casting
+	cout<<res<<"\n";
 
-		if (age < 22)
-			cout<<"You are still young.";
-	}
-	else
-		cout<<"you are rich\n";
+	char ch = 'a';
+	int ch_value = (int)ch;
 
-	//cout<<age; 	// NOT visible outside scope
+	cout<<ch_value<<"\n";
+
+	cout<<(int)'a'<<" "<<(int)'z'<<"\n";
+	cout<<(int)'A'<<" "<<(int)'Z'<<"\n";
+
 
 	return 0;
 }

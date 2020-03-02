@@ -2,16 +2,22 @@
 using namespace std;
 
 int main() {
-	int num;
-	cin>>num;
+	int num = 12345;
 
-	if (num == 10)
-	{
-		int x = 3;
-		cout<<"10 is lucky number\n";
-		cout<<"also "<<2*num + x<<"\n";
-	}
-	//cout<<x;	# not visible here!
+	cout<<num/10<<"\n";
+	cout<<num/100<<"\n";
+	cout<<num/1000<<"\n";
+	cout<<num/10000<<"\n";
+	cout<<num/100000<<"\n";
+
+	cout<<"*********\n";
+
+	cout<<num/10.0<<"\n";
+	cout<<num/100.0<<"\n";
+	cout<<num/1000.0<<"\n";
+	cout<<num/10000.0<<"\n";
+	cout<<num/100000.0<<"\n";
+
 
 	return 0;
 }
