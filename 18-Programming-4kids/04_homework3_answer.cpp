@@ -46,10 +46,3 @@ int main() {
 
 	return 0;
 }
-
-/*
-Try inputs
-
-11 2 7 9 12 -8 3 -1
-
- */
