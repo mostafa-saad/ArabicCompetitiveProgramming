@@ -1,3 +1,12 @@
+/*
+Homework 1#: Guess the run-time output
+
+Pass over the code line by line by yourself
+Decide What is the output of this code?
+
+Then run it and compare against yours!
+*/
+
 #include<iostream>
 using namespace std;
 

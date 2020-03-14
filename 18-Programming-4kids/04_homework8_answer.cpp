@@ -1,3 +1,17 @@
+/*
+Homework 8: Print Me
+
+
+Write a program that reads 2 integers A, B
+	B is either -1 or 1
+If -1, print 2*A+1
+If 1, print A*A
+
+However, you need to assume the following
+	Don’t use if conditions, if you know them
+	Don’t use comparison operators (e.g. ==, <=, >=, etc)
+*/
+
 #include<iostream>
 using namespace std;
 

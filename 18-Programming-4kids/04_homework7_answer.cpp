@@ -1,3 +1,13 @@
+/*
+Homework 7: Swapping 3 numbers!
+
+
+Same as previous, but on 3 numbers
+Let say we have numbers a = 115, b = 20, c = 301
+We wanna their final values to be: a = 20, b = 301, c = 115
+
+*/
+
 #include<iostream>
 using namespace std;
 
