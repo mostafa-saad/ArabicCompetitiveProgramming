@@ -41,6 +41,8 @@ int main() {
 
 	 Now, this works for even N
 	 Your turn: why works for odd N
+	 
+	 More readings: http://mathcentral.uregina.ca/qq/database/qq.02.06/jo1.html
 	 */
 
 	return 0;
