@@ -4,7 +4,7 @@ using namespace std;
 int main() {
 
 	int days;
-	while(true) {
+	
 	cin >> days;
 
 	int years = days / 360;
@@ -14,7 +14,7 @@ int main() {
 	days = days % 30;
 
 	cout<<years<<" "<<months<<" "<<days<<"\n";
-	}
+	
 
 	return 0;
 }
