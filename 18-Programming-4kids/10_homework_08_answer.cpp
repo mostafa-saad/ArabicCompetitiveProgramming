@@ -2,30 +2,26 @@
 // Homework 8 solution
 
 #include <iostream>
-using namespace std ;
+using namespace std;
 
-int n , x , occurrence[10] ;
+int main() {
+	int n, x, occurrence[10] = {0};
 
-int main()
- {
-    cin >> n ;
-    
-    for (int i = 0 ; i < n ;i++ )
-    {
-         cin >> x ; 
-        
-         while(x)
-         {
-             int digit = x%10 ;
-             occurrence[digit]++ ;
-             x /= 10 ;
-         }
-         
-    }
-    for (int i = 0 ; i <= 9 ; i++)
-    {
-        cout << i <<" " << occurrence[i] << endl ;
-    }
-    
+	cin >> n;
+
+	for (int i = 0; i < n; i++) {
+		cin >> x;
+
+		while (x) {
+			int digit = x % 10;
+			occurrence[digit]++;
+			x /= 10;
+		}
+
+	}
+	for (int i = 0; i <= 9; i++) {
+		cout << i << " " << occurrence[i] << endl;
+	}
+
 }
 

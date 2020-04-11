@@ -81,64 +81,6 @@ int main() {
 			cout << a[i] << " ";
 		cout << endl;
 	}
-	
-	// =====================================
-
-	// we can use only two loops to solve this problem
-	
-	// i will leave this solution uncommented and try to understand it by yourself :)
-
-	int maxSubarrayLength1 = 0;
-	int maxSubarrayStartIndex1 = -1;
-	int maxSubarrayEndIndex1 = -1;
-
-	for (int start = 0; start < n; start++) {
-		int zerosCount = 0;
-		int onesCount = 0;
-		for (int end = start; end < n; end++) {
-			if (a[end] == 0)
-				zerosCount++;
-			else if (a[end] == 1)
-				onesCount++;
-
-			if (zerosCount == onesCount) {
-				int subarrayLength = end - start + 1;
-				if (subarrayLength > maxSubarrayLength1) {
-					maxSubarrayLength1 = subarrayLength;
-					maxSubarrayStartIndex1 = start;
-					maxSubarrayEndIndex1 = end;
-				}
-			}
-		}
-	}
-
-	if (maxSubarrayLength1 == 0)
-		cout << "NOT FOUND" << endl;
-	else {
-		cout << maxSubarrayLength1 << endl;
-		for (int i = maxSubarrayStartIndex1; i <= maxSubarrayEndIndex1; i++)
-			cout << a[i] << " ";
-		cout << endl;
-	}
-
-	// =============================================
-
-	// the most clever solution for this problem is to solve it with only one loop
-	// please think as much as you can before reading the follwing hint
-
-	// first we need to change the values of the array a little bit
-	// let's change every 0 with 1
-	// and every 1 with -1
-	for (int i = 0; i < n; i++) {
-		if (a[i] == 0)
-			a[i] = 1;
-		else if (a[i] == 1)
-			a[i] = -1;
-	}
-
-	// then our problem now is to find the longest subarray with sum equal to zero, simple right ? :D
-
-	// please now think by your own after this hint to solve this problem with only one loop
 
 	return 0;
 }
