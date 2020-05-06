@@ -14,7 +14,7 @@ int main() {
 
 	while (true) {
 		int choice = -1;
-		cout << "Enter your choice:\n";
+		cout << "\nEnter your choice:\n";
 		cout << "1) Add new employee\n";
 		cout << "2) Print all employees\n";
 		cout << "3) Delete by age\n";
@@ -50,7 +50,7 @@ int main() {
 							<< " " << genders[i] << "\n";
 			}
 		} else if (choice == 3) {
-			cout << "Enter start and end age\n";
+			cout << "Enter start and end age: ";
 			int start, end;
 			cin >> start >> end;
 
@@ -59,7 +59,7 @@ int main() {
 					ages[i] = -1;// Let's mark a removed entry with -1 (lazy delete)
 			}
 		} else {
-			cout << "Enter the name and salary";
+			cout << "Enter the name and salary: ";
 			string name;
 			int salary;
 			cin >> name >> salary;
