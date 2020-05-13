@@ -5,7 +5,9 @@ using namespace std;
 
 int main() {
 	const int N = 201;	// Be careful. We need 201 values NOT 200
-	int occurrence[N] = { 0 }, sequence[N], indx;
+	int sequence[N], indx;
+
+	int occurrence[N * 10] = { 0 };	// possibly i-th value is much less than 10 * i
 
 	cin >> indx;
 	sequence[0] = 0;
