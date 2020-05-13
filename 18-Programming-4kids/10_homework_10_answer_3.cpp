@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
 	const int N = 200;
-	int n, arr[N], k, min_index, max_sum = -10000000;
+	int n, arr[N] = {0}, k, min_index, max_sum = -10000000;
 
 	cin >> k >> n;
 	// Note that we deal with 1-base array
