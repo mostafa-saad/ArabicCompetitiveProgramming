@@ -4,7 +4,7 @@ using namespace std;
 int menu() {
 	int choice = -1;
 	while (choice == -1) {
-		if (false) {
+		if (true) {
 			cout << "\nMenu;\n";
 			cout << "1) Add 2 numbers\n";
 			cout << "2) Subtract 2 numbers\n";
@@ -16,7 +16,7 @@ int menu() {
 		cout << "\nEnter your menu choice [1 - 5]: ";
 		cin >> choice;
 
-		if (!(1 <= choice && choice <= 10)) {
+		if (!(1 <= choice && choice <= 5)) {
 			cout << "Invalid choice. Try again\n";
 			choice = -1;	// loop keep working
 		}
