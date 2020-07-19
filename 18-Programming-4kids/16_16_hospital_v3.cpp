@@ -1,4 +1,5 @@
 #include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Global variables
@@ -6,62 +7,50 @@ const int MAX_SPECIALIZATION = 20;
 const int MAX_QUEUE = 5;
 
 struct hospital_queue {
-	string names[MAX_QUEUE+1];
-	int status[MAX_QUEUE+1];
-	int len;
+	// We might use priority_queue< pair<int, string> > que;
+	// for direct insert front/back
+	// But it is slower + won't allow printing
+
+	deque< pair<string, int> > que;
 	int spec;
 
 	hospital_queue() {
-		len = 0;
 		spec = -1;
 	}
 
 	hospital_queue(int _spec) {
-		len = 0;
 		spec = _spec;
 	}
 
 	bool add_end(string name, int st) {
-		if (len == MAX_QUEUE)
-			return false;
-		names[len] = name, status[len] = st, ++len;
+		auto item = make_pair(name, st);
+		que.push_back(item);
 		return true;
 	}
 	bool add_front(string name, int st) {
-		if (len == MAX_QUEUE)
-			return false;
-		// Shift right
-		for (int i = len - 1; i >= 0; --i) {
-			names[i + 1] = names[i];
-			status[i + 1] = status[i];
-		}
-		names[0] = name, status[0] = st, len++;
+		auto item = make_pair(name, st);
+		que.push_front(item);
 		return true;
 	}
 
 	void remove_front() {
-		if (len == 0) {
+		if (que.size() == 0) {
 			cout << "No patients at the moment. Have rest, Dr\n";
 			return;
 		}
-		cout << names[0] << " please go with the Dr\n";
-
-		// Shift left
-		for (int i = 1; i < len; ++i) {
-			names[i - 1] = names[i];
-			status[i - 1] = status[i];
-		}
-		--len;
+		auto item = que.front();
+		que.pop_front();
+		cout << item.first << " please go with the Dr\n";
 	}
 
 	void print() {
-		if (len == 0)
+		if (que.size() == 0)
 			return;
 
-		cout << "There are " << len << " patients in specialization " << spec << "\n";
-		for (int i = 0; i < len; ++i) {
-			cout << names[i] << " ";
-			if (status[i])
+		cout << "There are " << que.size() << " patients in specialization " << spec << "\n";
+		for(auto item : que) {
+			cout << item.first << " ";
+			if (item.second)
 				cout << "urgent\n";
 			else
 				cout << "regular\n";
@@ -71,9 +60,11 @@ struct hospital_queue {
 };
 
 struct hospital_system {
-	hospital_queue queues[MAX_SPECIALIZATION+1];
+	vector<hospital_queue> queues;
 
 	hospital_system() {
+		queues = vector<hospital_queue>(MAX_SPECIALIZATION);
+
 		for (int i = 0; i < MAX_SPECIALIZATION; ++i)
 			queues[i] = hospital_queue(i);
 	}
@@ -149,9 +140,53 @@ struct hospital_system {
 };
 
 int main() {
-	freopen("c.in", "rt", stdin);
+	//freopen("c.in", "rt", stdin);
 	hospital_system hospital = hospital_system();
 	hospital.run();
 	return 0;
 }
 
+
+/*
+
+1
+15 mostafa 0
+1
+15 asmaa 0
+1
+15 belal 1
+
+2
+
+1
+15 ziad 1
+2
+
+1
+15 safaa 0
+
+1 15 ashraf
+2
+
+3
+10
+
+3
+15
+
+2
+
+1
+7 soha 1
+
+2
+
+1
+15 amal 1
+
+3
+7
+
+2
+
+*/

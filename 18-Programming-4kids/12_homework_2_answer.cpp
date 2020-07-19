@@ -16,8 +16,9 @@ int main() {
 				upper += val;
 		}
 	}
-	cout << upper << "\n";
+	
 	cout << lower << "\n";
+	cout << upper << "\n";
 
 	return 0;
 }

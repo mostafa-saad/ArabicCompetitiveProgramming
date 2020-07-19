@@ -5,9 +5,9 @@ using namespace std;
 const int MAX_SPECIALIZATION = 20;
 const int MAX_QUEUE = 5;
 
-string names[MAX_SPECIALIZATION][MAX_QUEUE];
-int status[MAX_SPECIALIZATION][MAX_QUEUE];		// 0 regular, 1 urgent
-int queue_length[MAX_SPECIALIZATION];			// for each specialization: how many patients so far
+string names[MAX_SPECIALIZATION+1][MAX_QUEUE+1];
+int status[MAX_SPECIALIZATION+1][MAX_QUEUE+1];		// 0 regular, 1 urgent
+int queue_length[MAX_SPECIALIZATION+1];			// for each specialization: how many patients so far
 
 int menu() {
 	int choice = -1;
@@ -146,3 +146,46 @@ int main() {
 	return 0;
 }
 
+/*
+
+1
+15 mostafa 0
+1 
+15 asmaa 0
+1
+15 belal 1
+
+2
+
+1
+15 ziad 1
+2
+
+1
+15 safaa 0
+
+1 15 ashraf
+2
+
+3
+10
+
+3
+15
+
+2
+
+1
+7 soha 1
+
+2
+
+1
+15 amal 1
+
+3
+7
+
+2
+
+*/
