@@ -6,6 +6,7 @@ int main() {
 	int grid[100][100] = { 0 };
 
 	int n;
+	cout<<"Enter grid dimension: ";
 	cin >> n;
 
 	// Direct way to verify rows, cols and diagonals. Let's do it in a different way (for learning)
@@ -30,7 +31,12 @@ int main() {
 
 	int turn = 0;	// 0 for x, 1 for o. Don't get confused with grid values
 
+	int steps = 0;
 	while (true) {
+		if (steps == n*n) {
+			cout<<"Tie\n";
+			break;
+		}
 		char symbol = 'x';
 		if (turn == 1)
 			symbol = 'o';
@@ -78,8 +84,22 @@ int main() {
 		}
 
 		turn = !turn;	// 0 be 1, 1 be 0 = flip player
+		steps++;
 	}
 
 	return 0;
 }
+/*
+For tie
+3
+1 1
+1 3
+1 2
+2 2
+3 2
+2 1
+2 3
+3 3
+3 1
+ */
 
