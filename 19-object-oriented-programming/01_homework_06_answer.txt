@@ -1,0 +1,3 @@
+Google, and any service, hide all its codebase. You are only given minor access to what you need
+ One advantage of that is making system usage simpler and cleaner
+ If you don't need anything, why you should be annoyed with its details!

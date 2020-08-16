@@ -1,41 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Date {
-	int day;
-	int month;
-	int year;
-
-	// Returns the length of the month represented by this date.
-	int LengthOfMonth();
-
-	// Returns the length of the year represented by this date.
-	int LengthOfYear();
-
-	// Returns a copy of this LocalDate with the specified number of days subtracted.
-	Date MinusDays(int DaysToSubtract);
-	Date MinusMonths(int MonthsToSubtract);
-	Date MinusYears(int YearsToSubtract);
-	Date MinusWeeks(int WeeksToSubtract);
-
-	// Similarly, we can add Days. E.g. PlusDays(int DaysToAdd)
-
-	// To allow flexible strings, user provide format,
-	// e.g. yyyy.mm.dd returns (2014-07-26) and dd.mm returns (26-07)
-	string ToString(string format);
-
-	bool isEqual(Date d);
-	bool isBefore(Date d);
-	bool isAfter(Date d);
-
-	bool IsLeapYear();	// google if don't know
-
-	// These are just some methods. In reality, much more complex.
-};
-
-
-
-
 const int MAX = 500;
 string employee_first_name[MAX];
 string employee_middle_name[MAX];

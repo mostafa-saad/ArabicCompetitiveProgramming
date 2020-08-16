@@ -3,7 +3,6 @@
 using namespace std;
 
 int main() {
-	cout<<pow(2.0, 3.2);
 	Rectangle r1;
 	r1.SetWidth(5);
 	r1.SetHeight(10);
