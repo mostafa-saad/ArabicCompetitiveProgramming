@@ -181,7 +181,6 @@ struct User {
 	vector<int> questions_id_from_me;
 	// From question id to list of questions IDS on this question (thread questions) - For this user
 	map<int, vector<int>> questionid_questionidsThead_to_map;
-	set<int> blocked_user_ids;
 
 	User() {
 		user_id = allow_anonymous_questions = -1;

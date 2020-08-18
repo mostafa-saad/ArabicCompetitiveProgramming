@@ -51,3 +51,23 @@ int main()
     str2.print(); 
     return 0; 
 } 
+
+
+/*
+A Constructor
+B Constructor
+C Constructor
+D Constructor
+D Destructor
+C Destructor
+B Destructor
+A Destructor
+
+Data members are constructed in the order in which they’re declared in the class definition 
+	(not in the order they’re listed in the constructor member initializer list)
+	
+This enables us to confirm in the program output that objects are constructed from the inside out and 
+	destroyed in the reverse order, from the outside in
+
+
+*/
