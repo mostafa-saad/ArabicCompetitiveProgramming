@@ -8,7 +8,7 @@ private:
 	string color;
 
 public:
-	const string& GetColor() const {
+	const string& GetColor() {
 		return color;
 	}
 
@@ -16,7 +16,7 @@ public:
 		this->color = color;
 	}
 
-	int GetHeight() const {
+	int GetHeight() {
 		return height;
 	}
 
@@ -24,7 +24,7 @@ public:
 		this->height = height;
 	}
 
-	int GetWidth() const {
+	int GetWidth() {
 		return width;
 	}
 
@@ -41,7 +41,7 @@ private:
 	int apartment_number;
 
 public:
-	int GetApartmentNumber() const {
+	int GetApartmentNumber() {
 		return apartment_number;
 	}
 
@@ -49,7 +49,7 @@ public:
 		apartment_number = apartmentNumber;
 	}
 
-	int GetFloorNumber() const {
+	int GetFloorNumber() {
 		return floor_number;
 	}
 
@@ -57,7 +57,7 @@ public:
 		floor_number = floorNumber;
 	}
 
-	const vector<Room>& GetRooms() const {
+	const vector<Room>& GetRooms() {
 		return rooms;
 	}
 
@@ -65,7 +65,7 @@ public:
 		this->rooms = rooms;
 	}
 
-	const vector<Room>& GetBathroom() const {
+	const vector<Room>& GetBathroom() {
 		return bathroom;
 	}
 
@@ -83,7 +83,7 @@ private:
 	// Date: installation date, last maintenance date, manufacture
 
 public:
-	int GetHeight() const {
+	int GetHeight() {
 		return height;
 	}
 
@@ -91,7 +91,7 @@ public:
 		this->height = height;
 	}
 
-	int GetMaxPeople() const {
+	int GetMaxPeople() {
 		return max_people;
 	}
 
@@ -99,7 +99,7 @@ public:
 		max_people = maxPeople;
 	}
 
-	int GetMaxWeight() const {
+	int GetMaxWeight() {
 		return max_weight;
 	}
 
@@ -107,7 +107,7 @@ public:
 		max_weight = maxWeight;
 	}
 
-	int GetWidth() const {
+	int GetWidth() {
 		return width;
 	}
 

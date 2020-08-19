@@ -7,7 +7,7 @@ private:
 public:
 
 	void PrintAddress() {
-		printf("Fucntion address :%p\n", &LuckyNum::PrintAddress);
+		printf("Function address :%p\n", &LuckyNum::PrintAddress);
 		printf("Data address :%p\n", &num);
 	}
 };
