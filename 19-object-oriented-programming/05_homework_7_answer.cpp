@@ -64,6 +64,11 @@ public:
    We will have to change AutoTrader class (2 classes changed).
    If CarSpecs provides is_equal functionality, other users won't need to do/care about the changes
    as they are still handled
+
+3- On the other side, the code did not follow this nice tip:
+	“Don’t ask for the information you need to do the work; ask the object that has the information to do the work for you.” Allen Holub
+
+	We asked for all the gets to do the comparison! This should be the class responsibility
  */
 
 int main() {
