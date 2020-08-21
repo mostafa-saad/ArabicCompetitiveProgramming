@@ -1,5 +1,5 @@
-#ifndef H02_06_RECTANGLE_H_
-#define H02_06_RECTANGLE_H_
+#ifndef H04_04_RECTANGLE_H_
+#define H04_04_RECTANGLE_H_
 
 class Rectangle {
 private:
@@ -17,4 +17,4 @@ public:
 	void SetWidth(double width);
 };
 
-#endif /* H02_06_RECTANGLE_H_ */
+#endif /* H04_04_RECTANGLE_H_ */

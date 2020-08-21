@@ -8,16 +8,16 @@ private:
 
 public:
 	Rectangle() : Rectangle(0.0, 0.0) {
-		// Delegating constructor
+		// Delegating ructor
 		// Off-topic: Google power of delegation in workplace
 	}
-	Rectangle(double width_, double height_) :
-			width(width_), height(height_) {
+	Rectangle(double width, double height) :
+			width(width), height(height) {
 		// It is called member initializer list
 	}
 
-	Rectangle(double width_) :
-			width(width_), height(0) {
+	Rectangle(double width) :
+			width(width), height(0) {
 		// Function Overloading
 	}
 
@@ -29,13 +29,13 @@ public:
 		return 2 * (width + height);
 	}
 	// Setters & Getters
-	double GetHeight() const {
+	double GetHeight()  {
 		return height;
 	}
 	void SetHeight(double height) {
 		this->height = height;
 	}
-	double GetWidth() const {
+	double GetWidth()  {
 		return width;
 	}
 	void SetWidth(double width) {

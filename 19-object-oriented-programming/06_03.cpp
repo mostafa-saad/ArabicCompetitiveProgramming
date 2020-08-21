@@ -8,14 +8,14 @@ private:
 
 public:
 	MyNumber(int x = 3, int y = 5) {
-		cout << "Normal constructor\n";
+		cout << "Normal ructor\n";
 		val1 = new int;
 		*val1 = x;
 		val2 = y;
 	}
 
-	MyNumber(const MyNumber &another) {
-		cout << "Copy constructor\n";
+	MyNumber( MyNumber &another) {
+		cout << "Copy ructor\n";
 		val1 = new int;
 		*val1 = *another.val1;
 		val2 = another.val2;
@@ -31,8 +31,8 @@ public:
 
 
 int main() {
-	MyNumber a;				// normal constructor
-	MyNumber b(a);			// copy constructor
+	MyNumber a;				// normal ructor
+	MyNumber b(a);			// copy ructor
 
 	a.PrintValueAndAddress();
 	b.PrintValueAndAddress();

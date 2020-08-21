@@ -8,14 +8,14 @@ private:
 
 public:
 	MyNumber(int x = 3, int y = 5) {
-		cout << "Normal constructor\n";
+		cout << "Normal ructor\n";
 		val1 = new int;
 		*val1 = x;
 		val2 = y;
 	}
 
-	MyNumber(const MyNumber &another) {
-		cout << "Copy constructor\n";
+	MyNumber( MyNumber &another) {
+		cout << "Copy ructor\n";
 		val1 = new int;
 		*val1 = *another.val1;
 		val2 = another.val2;
@@ -32,7 +32,7 @@ public:
 
 void play1(MyNumber a) {}
 void play2(MyNumber &a) {}
-void play3(const MyNumber &a) {}
+void play3( MyNumber &a) {}
 
 MyNumber play4() {
 	MyNumber x(1, 1);
@@ -41,11 +41,11 @@ MyNumber play4() {
 
 int main() {
 	play1(MyNumber());
-	// play2(MyNumber());		// cannot be bound to a non-const reference
+	// play2(MyNumber());		// cannot be bound to a non- reference
 	play3(MyNumber());
-	// play2(play4());			// cannot be bound to a non-const reference
+	// play2(play4());			// cannot be bound to a non- reference
 
-	// Notice: Sometimes the copy constructor won't be called!
+	// Notice: Sometimes the copy ructor won't be called!
 	// Due to C++ return value optimization (RVO)
 	// 	It eliminates the temporary object created to hold a function's return value
 

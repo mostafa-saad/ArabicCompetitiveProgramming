@@ -7,11 +7,12 @@ private:
 	double height;
 
 public:
-	Rectangle(int width, int height) : width(0), height(0) {
+	Rectangle() : width(0), height(0) {
 	}
 
-	// This code won't compile.
-	// You must provide default if have other constructors
+	~Rectangle() {
+		cout<<"Destructor\n";
+	}
 
 	double ComputeArea() {
 		return width * height;
@@ -20,13 +21,13 @@ public:
 		return 2 * (width + height);
 	}
 	// Setters & Getters
-	double GetHeight() const {
+	double GetHeight()  {
 		return height;
 	}
 	void SetHeight(double height) {
 		this->height = height;
 	}
-	double GetWidth() const {
+	double GetWidth()  {
 		return width;
 	}
 	void SetWidth(double width) {
@@ -36,6 +37,8 @@ public:
 
 int main() {
 	Rectangle r1;
+	r1.SetWidth(5);
+	r1.SetHeight(10);
 	cout << r1.ComputeArea() << "\n";	// 50
 
 	return 0;

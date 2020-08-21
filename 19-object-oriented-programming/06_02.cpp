@@ -32,15 +32,15 @@ MyNumber fun2() {
 }
 
 int main() {
-	MyNumber a;				// normal constructor
-	MyNumber b(10, 20);		// normal constructor
+	MyNumber a;				// normal ructor
+	MyNumber b(10, 20);		// normal ructor
 
-	MyNumber c(b);			// copy constructor to build c
-	MyNumber d = b;			// copy constructor to initialize in declaration
-	fun1(c);				// copy constructor to pass object
-	fun2();					// copy constructor to return object
+	MyNumber c(b);			// copy ructor to build c
+	MyNumber d = b;			// copy ructor to initialize in declaration
+	fun1(c);				// copy ructor to pass object
+	fun2();					// copy ructor to return object
 
-	a = b;				// assignment NOT copy constructor
+	a = b;				// assignment NOT copy ructor
 
 	a.PrintValueAndAddress();
 	b.PrintValueAndAddress();
