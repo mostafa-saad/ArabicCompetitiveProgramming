@@ -11,9 +11,9 @@ public:
 	Rectangle(double width_, double height_);
 	double ComputeArea();
 	double ComputePerimeter();
-	double GetHeight() const;
+	double GetHeight() ;
 	void SetHeight(double height);
-	double GetWidth() const;
+	double GetWidth() ;
 	void SetWidth(double width);
 };
 

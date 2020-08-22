@@ -13,13 +13,13 @@ double Rectangle::ComputePerimeter() {
 	return 2 * (width + height);
 }
 // Setters & Getters
-double Rectangle::GetHeight() const {
+double Rectangle::GetHeight()  {
 	return height;
 }
 void Rectangle::SetHeight(double height) {
 	this->height = height;
 }
-double Rectangle::GetWidth() const {
+double Rectangle::GetWidth()  {
 	return width;
 }
 void Rectangle::SetWidth(double width) {

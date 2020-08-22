@@ -11,9 +11,9 @@ public:
 	Rectangle(double width_, double height_);
 	double ComputeArea();
 	double ComputePerimeter();
-	double GetHeight() const;
+	double GetHeight() ;
 	void SetHeight(double height);
-	double GetWidth() const;
+	double GetWidth() ;
 	void SetWidth(double width);
 };
 
@@ -30,13 +30,13 @@ double Rectangle::ComputePerimeter() {
 	return 2 * (width + height);
 }
 // Setters & Getters
-double Rectangle::GetHeight() const {
+double Rectangle::GetHeight()  {
 	return height;
 }
 void Rectangle::SetHeight(double height) {
 	this->height = height;
 }
-double Rectangle::GetWidth() const {
+double Rectangle::GetWidth()  {
 	return width;
 }
 void Rectangle::SetWidth(double width) {

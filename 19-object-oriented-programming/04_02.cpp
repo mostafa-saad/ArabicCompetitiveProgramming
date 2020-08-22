@@ -20,13 +20,13 @@ public:
 		return 2 * (width + height);
 	}
 	// Setters & Getters
-	double GetHeight() const {
+	double GetHeight()  {
 		return height;
 	}
 	void SetHeight(double height) {
 		this->height = height;
 	}
-	double GetWidth() const {
+	double GetWidth()  {
 		return width;
 	}
 	void SetWidth(double width) {
