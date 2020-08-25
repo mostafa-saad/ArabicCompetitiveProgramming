@@ -41,7 +41,7 @@ public:
 		for (int course_idx = 0; course_idx < (int) courses_names.size(); ++course_idx)
 			cout << "\t" << courses_names[course_idx] << " = " << grades[course_idx] << "\n";
 	}
-	bool GetCourseGradeInfo(int pos, pair<string, double> &result) {
+	bool GetCourseGradeInfo(int pos, pair<string, double> &result) const{
 		if (pos < 0 || pos >= (int) grades.size()) {
 			result = make_pair("", -1);
 			return false;
