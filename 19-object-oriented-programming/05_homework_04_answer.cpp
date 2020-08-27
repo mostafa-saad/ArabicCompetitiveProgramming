@@ -25,7 +25,7 @@ public:
 		int price3 = 20;
 
 		// Is below price variable the local price with value 10 or the class class?
-		// For a clear and maintable code, avoid local variable names with same name as data members.
+		// For a clear and maintainable code, avoid local variable names with same name as data members.
 		return price + price2 + price3;
 	}
 };

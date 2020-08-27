@@ -1,0 +1,8 @@
+- One of the popular principles is You aren't gonna need it (YAGNI)
+- Always implement things when you actually need them, never when you just foresee that you need them
+- Otherwise, they might be actually useless features and the team just lost resources for nothing
+- Side note: It is good that the design allows extensions, but implement when need
+
+Reading: https://martinfowler.com/bliki/Yagni.html
+	artin Fowler is a British software developer, author and international public speaker on software development, 
+	specialising in object-oriented analysis and design, UML, patterns, and agile software development methodologies, including extreme programming

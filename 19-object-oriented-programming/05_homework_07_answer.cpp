@@ -1,76 +1,77 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class CarSpecs {
+class Time {
 private:
-	string trim;
-	string engine_type;
-	pair<int, int> horsepower;
-	string steering_ratio;
-	// and more
+	int total_seconds;
+
 public:
-	 string& GetEngineType()  {
-		return engine_type;
+	Time(int hours, int minutes, int seconds) {
+		// Delegation: give another object/function the task to do it for you
+		SetTime(hours, minutes, seconds);
 	}
-	void SetEngineType( string& engineType) {
-		engine_type = engineType;
+	void SetTime(int hours, int minutes, int seconds) {
+		total_seconds = 0;
+		SetHours(hours);
+		SetMinutes(minutes);
+		SetSeconds(seconds);
 	}
-	pair<int, int> GetHorsepower()  {
-		return horsepower;
+	int GetTotalSeconds() {
+		return total_seconds;
 	}
-	void SetHorsepower(pair<int, int> horsepower) {
-		this->horsepower = horsepower;
+	int GetTotalMinutes() {
+		return GetHours() * 60 + GetMinutes();
 	}
-	 string& GetSteeringRatio()  {
-		return steering_ratio;
+	void PrintHHMMSS() {
+		cout << ToSring(":") << "\n";
 	}
-	void SetSteeringRatio( string& steeringRatio) {
-		steering_ratio = steeringRatio;
+	string ToSring(string seperator = "-") {
+		ostringstream oss;
+		oss << GetHours() << seperator << GetMinutes() << seperator << GetSeconds();
+		return oss.str();
 	}
-	 string& GetTrim()  {
-		return trim;
+	int GetHours() {
+		return total_seconds / (60 * 60);
 	}
-	void SetTrim( string& trim) {
-		this->trim = trim;
+	void SetHours(int hours) {
+		if (hours < 0)
+			hours = 0;
+		total_seconds += (hours - GetHours()) * 60 * 60;
+
+	}
+	int GetMinutes() {
+		return (total_seconds % (60 * 60)) / 60;
+	}
+	void SetMinutes(int minutes) {
+		if (minutes < 0)
+			minutes = 0;
+		total_seconds += (minutes - GetMinutes()) * 60;
+	}
+	int GetSeconds() {
+		return total_seconds % 60;
+	}
+	void SetSeconds(int seconds) {
+		if (seconds < 0)
+			seconds = 0;
+		total_seconds += (seconds - GetSeconds());
 	}
 };
 
-class AutoTrader {
-private:
-	vector<CarSpecs> current_cars_vec;
-public:
-	void LoadDatabase() {
-		// Fill current_cars_vec
-	}
 
-	bool search_match( CarSpecs &query_car) {
-		for(auto available_car : current_cars_vec) {
-			if(available_car.GetEngineType() != query_car.GetEngineType())	continue;
-			if(available_car.GetHorsepower() != query_car.GetHorsepower())	continue;
-			if(available_car.GetSteeringRatio() != query_car.GetSteeringRatio())	continue;
-			if(available_car.GetTrim() != query_car.GetTrim())	continue;
-			return true;
-		}
-		return false;
-	}
-};
+// In previous code, all functions use directly the 3 integers
+// It might be a good practice to depend on the available setters and getters
+// Imagine a real Time class with 20 functions that use minutes, which now doesn't exist
+// If they all use GetMinutes, no one of them will be changed
+// Be careful with data members that might change or keep depending on setters/getters
+// As you see, we could even provide setters & getters for variables that doesn't exist
 
-/*
-
-1- Above code violates encapsulation concept by forcing others to think how to compare to objects
-   The right way, CarSpecs provides is_equal functionality
-
-2- Also from code change perspective, every time we change the data members in CarSpecs (e.g. details of exterior shape)
-   We will have to change AutoTrader class (2 classes changed).
-   If CarSpecs provides is_equal functionality, other users won't need to do/care about the changes
-   as they are still handled
-
-3- On the other side, the code did not follow this nice tip:
-	“Don’t ask for the information you need to do the work; ask the object that has the information to do the work for you.” Allen Holub
-
-	We asked for all the gets to do the comparison! This should be the class responsibility
- */
+// Code "flexibility" is important
 
 int main() {
+	Time t(0, 0, 0);
+	t.SetMinutes(1);
+	t.SetSeconds(60);
+	t.SetHours(2);
+	cout << t.GetTotalSeconds();
 	return 0;
 }

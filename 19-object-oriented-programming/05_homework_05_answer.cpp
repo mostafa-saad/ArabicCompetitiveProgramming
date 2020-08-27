@@ -41,7 +41,7 @@ public:
 		return hours;
 	}
 	void SetHours(int hours) {
-		// Be careful from missing verifications. This is improtant for "data-inegrity"
+		// Be careful from missing verifications. This is important for "data-integrity"
 		if (hours < 0)
 			hours = 0;
 		this->hours = hours;

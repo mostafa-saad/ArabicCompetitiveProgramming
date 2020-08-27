@@ -3,75 +3,94 @@ using namespace std;
 
 class Time {
 private:
-	int total_seconds;
+	int hours;
+	int minutes;
+	int seconds;
 
 public:
 	Time(int hours, int minutes, int seconds) {
-		// Delegation: give another object/function the task to do it for you
 		SetTime(hours, minutes, seconds);
 	}
 	void SetTime(int hours, int minutes, int seconds) {
-		total_seconds = 0;
-		SetHours(hours);
-		SetMinutes(minutes);
-		SetSeconds(seconds);
+		this->hours = hours;
+		this->minutes = minutes;
+		this->seconds = seconds;
 	}
 	int GetTotalSeconds() {
-		return total_seconds;
+		return hours * 60 * 60 + minutes * 60 + seconds;
 	}
 	int GetTotalMinutes() {
-		return GetHours() * 60 + GetMinutes();
+		return hours * 60 + minutes;
 	}
 	void PrintHHMMSS() {
-		cout << ToSring(":") << "\n";
+		cout<<ToSring(":")<<"\n";
 	}
 	string ToSring(string seperator = "-") {
 		ostringstream oss;
-		oss << GetHours() << seperator << GetMinutes() << seperator << GetSeconds();
+		oss << hours << seperator << minutes << seperator << seconds;
 		return oss.str();
 	}
 	int GetHours() {
-		return total_seconds / (60 * 60);
+		return hours;
 	}
-	void SetHours(int hours) {
+	Time& SetHours(int hours) {
 		if (hours < 0)
 			hours = 0;
-		total_seconds += (hours - GetHours()) * 60 * 60;
+		this->hours = hours;
 
+		return *this;
 	}
 	int GetMinutes() {
-		return (total_seconds % (60 * 60)) / 60;
+		return minutes;
 	}
-	void SetMinutes(int minutes) {
+	Time& SetMinutes(int minutes) {
 		if (minutes < 0)
 			minutes = 0;
-		total_seconds += (minutes - GetMinutes()) * 60;
+		this->minutes = minutes;
+
+		return *this;
 	}
 	int GetSeconds() {
-		return total_seconds % 60;
+		return seconds;
 	}
-	void SetSeconds(int seconds) {
+	Time& SetSeconds(int seconds) {
 		if (seconds < 0)
 			seconds = 0;
-		total_seconds += (seconds - GetSeconds());
+		this->seconds = seconds;
+
+		return *this;
 	}
 };
 
+/*
+what does it mean to do
+	1) t.SetHours(5).Something?
+	.Something is a function, then it needs object
+	then t.SetHours(5) must return object of type time NOT void
 
-// In previous code, all functions use directly the 3 integers
-// It might be a good practice to depend on the available setters and getters
-// Imagine a real Time class with 20 functions that use minutes, which now doesn't exist
-// If they all use GetMinutes, no one of them will be changed
-// Be careful with data members that might change or keep depending on setters/getters
-// As you see, we could even provide setters & getters for variables that doesn't exist
+	So we need to return object from these setters
 
-// Code "flexibility" is important
+	2) Now each object has pointer to itself this
+		*this is the object
+		We can return this but there is a problem
+		It will be a copy, so NOT same
+		This means we are modifying some temporary object NOT t itself!
+
+	To solve that, return the object by reference: Time&T
+
+	So overall
+	Time& SomeSetter
+		return *this
+
+ */
 
 int main() {
-	Time t(0, 0, 0);
-	t.SetMinutes(1);
-	t.SetSeconds(60);
-	t.SetHours(2);
-	cout << t.GetTotalSeconds();
+
+	Time t(3, 1, 2);
+	t.PrintHHMMSS();	// 3:1:2
+
+	t.SetHours(5).SetMinutes(45).SetSeconds(13);
+	t.PrintHHMMSS();	// 5:45:13
+
 	return 0;
 }
