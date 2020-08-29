@@ -82,6 +82,12 @@ what does it mean to do
 	Time& SomeSetter
 		return *this
 
+
+
+Q: Was it possible / More OOP to add const to return?:
+
+	const Time& SetMinutes(int minutes)
+
  */
 
 int main() {
