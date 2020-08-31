@@ -22,6 +22,8 @@ public:
 		// Moving to Initializer list, then we Initialize it before construction only once
 
 		// Tip: Always use Initializer list
+		// Note: If a member object is not initialized through a member initializer, the member object’s default constructor will be called "implicitly".
+			// Avoid duplicate initlaization!
 	}
 };
 
