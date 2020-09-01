@@ -667,7 +667,7 @@ public:
 				cout << "\nInvalid user name or password. Try again\n\n";
 				continue;
 			}
-			User user_exist = userame_userobject_map[current_user.GetUserName()];
+			const User& user_exist = userame_userobject_map[current_user.GetUserName()];
 
 			if (current_user.GetPassword() != user_exist.GetPassword()) {
 				cout << "\nInvalid user name or password. Try again\n\n";
