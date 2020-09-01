@@ -628,6 +628,7 @@ private:
 	User current_user;
 	int last_id;
 
+
 public:
 	UsersManager() {
 		last_id = 0;
@@ -739,10 +740,11 @@ public:
 };
 
 class AskMeSystem {
+private:
 	UsersManager users_manager;
 	QuestionsManager questions_manager;
 
-	void LoadDatabase(bool fill_user_questions = false) {
+	void LoadDatabase(bool fill_user_questions = false) {	// Internal
 		users_manager.LoadDatabase();
 		questions_manager.LoadDatabase();
 
@@ -769,7 +771,8 @@ class AskMeSystem {
 		users_manager.ResetFromQuestions(from_questions);
 	}
 
-	void Run() {
+public:
+	void Run() {	// only public one
 		LoadDatabase(false);
 		users_manager.AccessSystem();
 		ResetCurrentUserQuestions();
