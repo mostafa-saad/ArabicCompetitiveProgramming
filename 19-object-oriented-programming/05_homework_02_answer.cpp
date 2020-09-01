@@ -35,9 +35,12 @@ private:
 public:
 	ClassC(int &y, const ClassB &bb) :
 			y(y), bb(bb) {
-		// You must use initalizer list
+		// 1- The only way to initialize a reference is intializer list
+		// 1- The only way to initialize a class that doesn't have default constructor (e.g. Class B)  is intializer list
 	}
 };
+
+// Tip: please use initalizer list as much as possible!
 
 int main() {
 	int hello = 10;

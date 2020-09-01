@@ -4,6 +4,8 @@ using namespace std;
 
 // Global variables
 const int MAX_SPECIALIZATION = 20;
+
+// I just ignored this condition in this code
 const int MAX_QUEUE = 5;
 
 struct hospital_queue {

@@ -1,69 +1,68 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class MyVector {
-private:
-	int *arr;
-	int len = 100;
+#include <bits/stdc++.h>
+using namespace std;
 
-public:
-	MyVector(int len, int default_value = 0) {
-		this->len = len;
-		this->arr = new int[len];
+// Improperly declared parameter:  sent parameter should be const reference:
+void print1(string& s) {
+}
 
-		for (int i = 0; i < len; ++i) {
-			this->arr[i] = default_value;
-		}
-	}
+// Properly declared function: function has no intent to modify s:
+void print2(const string& s) {
+}
 
-	MyVector(const MyVector & another) {
-		len = another.len;
-		this->arr = new int[len];
+string msg1() {
+	string x = "aa";
+	return x;
+}
 
-		for (int i = 0; i < len; ++i)
-			arr[i] = another.arr[i];
-	}
+const string& msg2() {
+	return "aa";
+}
 
-	~MyVector() {
-		delete[] this->arr;
-	}
-
-	int Get(int pos) {
-		if (pos < len)
-			return this->arr[pos];
-		else {
-			cout<<"Invalid access\n";
-			return -1;
-		}
-
-	}
-
-	void Set(int pos, int val = 0) {
-		if (pos < len)
-			this->arr[pos] = val;
-		else
-			cout<<"Invalid access\n";
-	}
-
-	// Breaks Data-Hiding concept. User has access to private data and can corrupt the system
-
-	int& GetLen() {
-		return len;
-	}
-};
+const string& msg3() {
+	string x = "aa";
+	return x;
+}
 
 int main() {
-	MyVector v(10, 12345);
+	string hello("Hello");
 
-	cout<<v.Get(4)<<"\n";
+	print1(hello);
+	// Next 2 lines create temporary objects. Sent parameter can't be temporary
+		// Recall: cannot be bound to a non-const reference
+	print1(string("World"));
+	print1("!");
 
-	// User access array length and set to zero!
-	int &l = v.GetLen();
-	l = 0;
+	// As parameter is const & for param: any style can be used
+	print2(hello);
+	print2(string("World"));
+	print2("!");
 
-	cout<<v.Get(4)<<"\n";
+	string a1 = msg1();
+	// Returned param is temporary. Must receive with & or const &
+	string &a2 = msg1();
+	const string &a3 = msg1();
 
+	// Run time error. Above function send reference to local variable that will be destroyed
+	string a = msg2();
+	string b = msg2();
 
+	/*
+	 * Here is a general guideline
+	 * 1) Using no reference (in parameter, function return or receiving variable in the caller)
+	 * 	A) No compile or run time error
+	 * 	B) If the object is heavy: takes more time and memory
+	 *
+	 * 	2) Using & saves time and memory BUT
+	 * 	A) As a function parameter: if used & without const: you can't send temporary object => Compile error
+	 * 	B) As a return: Never return & (or const &) for a local variable as it will be destroyed. This will cause RTE. The is the most dangerous case, as others cause compile error.
+	 * 	C) You can return & to data member as it won't be destroyed before the receiving variable. But better use const & to follow OO concepts as possible
+	 * 	D) As a receiving variable: You can't receive & for temporary object. Compile error
+	 * 	E)   As a receiving variable: You can always receive const &, even for temporary object. No problem.
+	 */
 
 	return 0;
 }
+

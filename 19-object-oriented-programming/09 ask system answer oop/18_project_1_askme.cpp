@@ -105,8 +105,8 @@ private:
 
 public:
 	/*
-	 * How many constructor arguments is too many?
-	 * 	https://stackoverflow.com/questions/40264/how-many-constructor-arguments-is-too-many
+	 * How many conclassor arguments is too many?
+	 * 	https://stackoverflow.com/questions/40264/how-many-conclassor-arguments-is-too-many
 	 */
 	Question() :
 			question_id(-1), parent_question_id(-1), from_user_id(-1), to_user_id(-1), is_anonymous_questions(1) {
@@ -238,7 +238,7 @@ public:
 	}
 };
 
-struct User {
+class User {
 private:
 	int user_id;		// internal system ID
 	string user_name;
@@ -375,7 +375,7 @@ public:
 	}
 };
 
-struct QuestionsManager {
+class QuestionsManager {
 private:
 	// From question id to list of questions IDS on this question (thread questions) - All users
 	map<int, vector<int>> questionid_questionidsThead_to_map;
@@ -622,7 +622,7 @@ public:
 	}
 };
 
-struct UsersManager {
+class UsersManager {
 private:
 	map<string, User> userame_userobject_map;
 	User current_user;
@@ -738,7 +738,7 @@ public:
 	}
 };
 
-struct AskMeSystem {
+class AskMeSystem {
 	UsersManager users_manager;
 	QuestionsManager questions_manager;
 

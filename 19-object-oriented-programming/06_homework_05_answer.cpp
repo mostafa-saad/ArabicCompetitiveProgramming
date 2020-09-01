@@ -44,17 +44,24 @@ public:
 		else
 			cout<<"Invalid access\n";
 	}
-	
-	int GetLen() {
+
+	// Breaks Data-Hiding concept. User has access to private data and can corrupt the system
+
+	int& GetLen() {
 		return len;
 	}
 };
 
 int main() {
 	MyVector v(10, 12345);
-	MyVector v2(v);
 
-	v2.Set(12000);
+	cout<<v.Get(4)<<"\n";
+
+	// User access array length and set to zero!
+	int &l = v.GetLen();
+	l = 0;
+
+	cout<<v.Get(4)<<"\n";
 
 
 

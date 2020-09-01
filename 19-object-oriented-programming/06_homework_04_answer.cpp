@@ -1,46 +1,62 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-class ClassA {
+class MyVector {
 private:
-	int *val;
+	int *arr;
+	int len = 100;
+
 public:
-	ClassA(int v) {
-		val = new int;
-		*val = v;
-	}
-	~ClassA() {
-		delete val;
-		val = NULL;	// good practice
+	MyVector(int len, int default_value = 0) {
+		this->len = len;
+		this->arr = new int[len];
+
+		for (int i = 0; i < len; ++i) {
+			this->arr[i] = default_value;
+		}
 	}
 
-	const int* GetVal() {			// adding const here prevents from wrong usage
-		return val;
+	MyVector(const MyVector & another) {
+		len = another.len;
+		this->arr = new int[len];
+
+		for (int i = 0; i < len; ++i)
+			arr[i] = another.arr[i];
 	}
 
-	void SetVal(int* val) {
-		this->val = val;
+	~MyVector() {
+		delete[] this->arr;
+	}
+
+	int Get(int pos) {
+		if (pos < len)
+			return this->arr[pos];
+		else {
+			cout<<"Invalid access\n";
+			return -1;
+		}
+
+	}
+
+	void Set(int pos, int val = 0) {
+		if (pos < len)
+			this->arr[pos] = val;
+		else
+			cout<<"Invalid access\n";
+	}
+	
+	int GetLen() {
+		return len;
 	}
 };
 
 int main() {
-	ClassA a1(10);
-	ClassA a2(20);
-	a2.SetVal(a1.GetVal());
+	MyVector v(10, 12345);
+	MyVector v2(v);
+
+	v2.Set(12000);
+
+
+
 	return 0;
 }
-
-/*
-The 2 objects now share same pointer.
-The first destructor to execute would delete the dynamically allocated memory, 
-and the other object’s ptr would point to memory that’s no longer allocated, a situation called a dangling pointer.
-This would likely result in a serious runtime error (such as early program termination) when the pointer was used.
-
-
-By using const, then user can't reset it so we prevent such behaviour
-
-Tip: Rewiew slide Accessor & mutator: The proper way?
-	Careful thinking about your setters and getters
-	In this scenario, returning pointer can make serious problems
-*/
