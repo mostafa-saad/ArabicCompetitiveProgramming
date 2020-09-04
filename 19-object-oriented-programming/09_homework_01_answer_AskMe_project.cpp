@@ -3,6 +3,8 @@
 // You are encouraged to challenge this code and notify me of issues :)
 // Compare this code with Programming 1 code to realize differences
 
+// From Model View perspective, this code mixes things. This makes real-life development harder due to coupling
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -396,7 +398,7 @@ public:
 		questionid_questionidsThead_to_map.clear();
 		questionid_questionobject_map.clear();
 
-		vector<string> lines = ReadFileLines("18_questions.txt");
+		vector<string> lines = ReadFileLines("09_homework_01_answer_AskMe_project_questions.txt");
 		for (const auto &line : lines) {
 			Question question(line);
 			last_id = max(last_id, question.GetQuestionId());
@@ -638,7 +640,7 @@ public:
 		last_id = 0;
 		userame_userobject_map.clear();
 
-		vector<string> lines = ReadFileLines("18_users.txt");
+		vector<string> lines = ReadFileLines("09_homework_01_answer_AskMe_project_users.txt");
 		for (const auto &line : lines) {
 			User user(line);
 			userame_userobject_map[user.GetUserName()] = user;
