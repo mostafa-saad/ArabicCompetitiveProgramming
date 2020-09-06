@@ -1,5 +1,3 @@
-// I will be glad if someone continued the code and sent to me :)
-
 // If you don't understand reason behind something, change it and see
 // E.g. why the system has users_manager as pointer?
 
@@ -49,7 +47,29 @@ private:
 
 public:
 	void Read() {
+		string str;
 
+		cout << "Enter ISBN: ";
+		cin >> str;
+		SetIsbn(str);
+
+		cout << "Enter Title: ";
+		cin >> str;
+		SetTitle(str);
+
+		cout << "Enter Author Name: ";
+		cin >> str;
+		SetAuthor(str);
+
+		cout << "Enter How many pages: ";
+		int pages_count;
+		cin >> pages_count;
+
+		for (int page = 0; page < pages_count; ++page) {
+			cout << "Enter page # " << page + 1 << ": ";
+			cin >> str;
+			pages.push_back(str);
+		}
 	}
 
 	const string& GetAuthor() const {
@@ -293,8 +313,10 @@ public:
 	void operator=(const UsersManager&) = delete;
 
 	void LoadDatabase() {
-		FreeLoadedData();
+		cout<<"UsersManager: LoadDatabase\n";
 
+		FreeLoadedData();
+		// Some "Dummy Data" for simplicity
 		User* user1 = new User();
 		user1->SetUserName("mostafa");
 		user1->SetPassword("111");
@@ -310,14 +332,6 @@ public:
 		user2->SetIsLibraryAdmin(false);
 		user2->SetName("Asmaa Saad Ibrahim");
 		userame_userobject_map[user2->GetUserName()] = user2;
-
-		User* user3 = new User();
-		user3->SetUserName("belal");
-		user3->SetPassword("333");
-		user3->SetEmail("belal@gmail.com");
-		user3->SetIsLibraryAdmin(false);
-		user3->SetName("belal Saad Ibrahim");
-		userame_userobject_map[user3->GetUserName()] = user3;
 	}
 
 	void AccessSystem() {
@@ -394,6 +408,7 @@ public:
 	}
 
 	void LoadDatabase() {
+		cout<<"BooksManager: LoadDatabase\n";
 		FreeLoadedData();
 
 		Book* book1 = new Book();
@@ -594,7 +609,9 @@ public:
 	}
 
 	void AddBook() {
-		// TODO
+		Book *book = new Book();
+		book->Read();
+		books_manager.AddBook(book);
 	}
 
 };
@@ -628,8 +645,9 @@ public:
 	}
 
 	void Run() {	// only public one
+		LoadDatabase();
+
 		while (true) {
-			LoadDatabase();
 			users_manager->AccessSystem();	// login/signup
 
 			// Let's make for every user, its own viewer class: Remember: Single responsibility principle
@@ -641,7 +659,6 @@ public:
 				view.Display();
 			}
 		}
-
 	}
 };
 
