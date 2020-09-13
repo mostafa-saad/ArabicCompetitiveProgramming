@@ -4,51 +4,53 @@ using namespace std;
 class A {
 public:
 	int x = 1;
+	void print() {
+		cout << "I am A\n";
+	}
 	~A() {
-		cout<<"A Destructor\n";
+		cout << "A Destructor\n";
 	}
 };
 
 class B: public A {
 public:
 	int y = 2;
+	void print() {
+		cout << "I am B\n";
+	}
 	~B() {
-		cout<<"B Destructor\n";
+		cout << "B Destructor\n";
 	}
 };
 
 class C: public B {
 public:
 	int z = 3;
-
+	void print() {
+		cout << "I am C\n";
+	}
 	~C() {
-		cout<<"C Destructor\n";
+		cout << "C Destructor\n";
 	}
 };
 
 void hello(A* a) {
-	// what is visible?
+	a->x = 1;
+	a->print();
 }
 
 int main() {
-	A* a1 = new A();
-	B* b1 = new B();
-	C* c1 = new C();
+	C* c = new C();
+	A* a_points_c = new C();
 
-	A* b2 = new B();
-	A* c2 = new C();
+	hello(c);
+	hello(a_points_c);
 
-	hello(c1);
-	hello(c2);
+	c->print();
+	a_points_c->print();
 
-	delete a1;
-	delete b1;
-	delete c1;
-
-	delete b2;
-	delete c2;
+	delete c;
+	delete a_points_c;
 
 	return 0;
 }
-
-// TODO
