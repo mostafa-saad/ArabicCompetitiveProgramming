@@ -1,0 +1,9 @@
+Reading https://www.codeproject.com/Articles/34125/Chapter-10-Object-Oriented-Programming-Polymorphis
+	from  Software Engineering Case Study: Incorporating Inheritance into the ATM System
+	
+In summary
+	ATM composed of 4 hardware components
+	It can execute a transaction (polymorphism), which can be one 3 types.
+		Deposit & Withdraw each is associated with a hardware
+	ATM need to interact with Database to verify the login account
+	Also transaction needs some database ID for operation + change balance

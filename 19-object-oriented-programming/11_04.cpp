@@ -3,37 +3,22 @@ using namespace std;
 
 class A {
 public:
-	int x;
-protected:
-	int y;
-private:
-	// Always invisible for outsiders
-	int z;
+	void f1() 			  {		cout << "A::f1\n";	}
+	void f1(int x) 		  { 	cout << "A::f1(x)\n";	}
+	void f1(int x, int y) {		cout << "A::f1(x,y)\n";	}
 };
 
 class B: public A {
-	// x is public
-	// y is protected
-};
-
-class C: protected A {
-	// x is protected
-	// y is protected
-};
-
-class D: private A {
-	// Now invisible for outsiders
-	// x is private
-	// y is private
+public:
+	void f1() 			  {		cout << "B::f1\n";	}
+	void f1(int x) 		  { 	cout << "B::f1(x)\n";	}
+	void f1(int x, int y) {		cout << "B::f1(x,y)\n";	}
 };
 
 int main() {
-	A a;
-	a.x = 1;	// can't access y or z
-
-	B b;
-	b.x = 1;	// can't access y or z
-
-	C c;		// can't access x or y or z
-	return 0;
+	B* b1 = new B();
+	b1->f1();
+	b1->f1(1);
+	b1->f1(1, 2);
+	delete b1;
 }

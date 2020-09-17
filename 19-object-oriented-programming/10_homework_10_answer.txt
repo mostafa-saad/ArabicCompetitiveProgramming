@@ -15,6 +15,6 @@ We could easily from the begin build one class and keep changing it so that it h
 
 - 
 
-- Diagrams source: https://dzone.com/articles/is-inheritance-dead
+- Diagrams source: 			https://dzone.com/articles/is-inheritance-dead
 
 
