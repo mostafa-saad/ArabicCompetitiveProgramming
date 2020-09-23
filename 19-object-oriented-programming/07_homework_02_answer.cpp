@@ -37,13 +37,15 @@ Constructor: Belal
 Constructor: Mostafa
 Constructor: Mona
 Destructor: Mona
+Constructor: Asmaa
 Destructor: Mostafa
+Destructor: Asmaa
 Destructor: Belal
 
 Constructor's call are the easy part.
 
 For destructor, Think in the object's life time
-- Static object ends ONLY with the end of the program. 
+- Static object ends ONLY with the end of the program.
 - So every static member ends only after complete end of program life time
 	- If there are more than static, destruction in reverse order
 

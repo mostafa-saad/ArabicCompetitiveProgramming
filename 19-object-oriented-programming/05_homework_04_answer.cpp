@@ -5,10 +5,11 @@ class OurPrice {
 private:
 	int price;
 
+public:
 	OurPrice(int price){
 		SetPrice(price);
 	}
-public:
+	
 	int GetPrice() const {
 		return price;
 	}
@@ -36,6 +37,8 @@ int main() {
 
 
 /*
+OurPrice constructor should be public to use it
+
 Notice that SetPrice involves some checks and changes for the input parameter. The constructor forget that
 
 One way to fix it, to do the same in the constructor. But this duplicate the code!
