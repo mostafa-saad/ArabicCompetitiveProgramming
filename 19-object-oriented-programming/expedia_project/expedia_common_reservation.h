@@ -14,6 +14,8 @@ public:
 
 	virtual double TotalCost() const = 0;
 
+	virtual string ToString() const = 0;
+
 	virtual ~Reservation() {
 	}
 };
@@ -22,7 +24,7 @@ public:
 // What in future about reservations for cars? Cruise? whatever?
 // Think in future: can we handle things in generic way?
 
-class ItineraryReservation : public Reservation {
+class ItineraryReservation: public Reservation {
 protected:
 	vector<Reservation*> reservations;	// As has pointers, we need copy constructor
 
@@ -31,7 +33,7 @@ public:
 	}
 
 	ItineraryReservation(const ItineraryReservation& another_reservation) {	// copy constructor
-		for(const Reservation* reservation : another_reservation.GetReservations())
+		for (const Reservation* reservation : another_reservation.GetReservations())
 			AddReservation(*reservation);
 	}
 
@@ -62,12 +64,26 @@ public:
 		reservations.clear();
 	}
 
-	virtual Reservation* Clone() const {
+	virtual string ToString() const override {
+		ostringstream oss;
+
+		oss <<"**********************************************\n";
+		oss << "Itinerary of " << reservations.size() << " sub-reservations\n";
+
+		for (const Reservation* reservation : reservations)
+			oss << reservation->ToString() << "\n";
+
+		oss << "Total Itinerary cost: " << TotalCost() << "\n";
+		oss <<"**********************************************\n";
+		return oss.str();
+	}
+
+	virtual Reservation* Clone() const override {
 		return new ItineraryReservation(*this);
 	}
 };
 
-class ReservationsGroup : public ItineraryReservation {
+class ReservationsSet: public ItineraryReservation {
 public:
 	// We need another class that act like set of different reservations (not Itinerary)
 	// This has same functionalities as ItineraryReservation
@@ -77,7 +93,7 @@ public:
 	using ItineraryReservation::ItineraryReservation;	// use its copy constructor
 
 	virtual Reservation* Clone() const {
-		return new ReservationsGroup(*this);
+		return new ReservationsSet(*this);
 	}
 };
 

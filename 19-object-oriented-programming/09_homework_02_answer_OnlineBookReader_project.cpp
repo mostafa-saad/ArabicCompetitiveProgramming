@@ -289,21 +289,16 @@ private:
 			delete pair.second;
 		}
 		userame_userobject_map.clear();
+		current_user = nullptr;
 	}
 
 public:
-	UsersManager() :
-			current_user(new User()) {
+	UsersManager() {
 	}
 
 	~UsersManager() {
 		cout << "Destuctor: UsersManager\n";
 		FreeLoadedData();
-
-		if (current_user != nullptr) {
-			delete current_user;
-			current_user = nullptr;
-		}
 	}
 
 	// No sense for such a class (manager of objects) to be copyable!
@@ -346,20 +341,18 @@ public:
 		LoadDatabase();
 
 		while (true) {
-			string name, pass;
-			cout << "Enter user name & password: ";
-			cin >> name >> pass;
-			current_user->SetUserName(name);
-			current_user->SetPassword(pass);
+			string user_name, pass;
+			cout << "Enter user user_name & password: ";
+			cin >> user_name >> pass;
 
-			if (!userame_userobject_map.count(current_user->GetUserName())) {
-				cout << "\nInvalid user name or password. Try again\n\n";
+			if (!userame_userobject_map.count(user_name)) {
+				cout << "\nInvalid user user_name or password. Try again\n\n";
 				continue;
 			}
-			User* user_exist = userame_userobject_map.find(current_user->GetUserName())->second;
+			User* user_exist = userame_userobject_map.find(user_name)->second;
 
-			if (current_user->GetPassword() != user_exist->GetPassword()) {
-				cout << "\nInvalid user name or password. Try again\n\n";
+			if (pass != user_exist->GetPassword()) {
+				cout << "\nInvalid user user_name or password. Try again\n\n";
 				continue;
 			}
 			current_user = user_exist;

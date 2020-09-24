@@ -59,26 +59,19 @@ public:
 
 ///////////////////////////////////
 
-class IHotelsManager;
-
 class HotelRoom {
 private:
-
+	string hotel_name;
 	string room_type;
 	int available_rooms = 0;
 	double price_per_night = 0;
 	string date_from;
 	string date_to;
-	IHotelsManager* manager;
 
 public:
-	HotelRoom(IHotelsManager* manager) :
-			manager(manager) {
-	}
-
 	string ToString() const {
 		ostringstream oss;
-		oss << room_type<<"("<<available_rooms<<") Price per night: " << price_per_night << " From Date " << date_from << " to " << date_to<<"";
+		oss << "Hotel: " << hotel_name << " Room Type: " << room_type << "(" << available_rooms << ") Price per night: " << price_per_night << " From Date " << date_from << " to " << date_to << "";
 		return oss.str();
 	}
 
@@ -96,10 +89,6 @@ public:
 
 	void SetDateTo(const string& dateTo) {
 		date_to = dateTo;
-	}
-
-	const IHotelsManager* GetManager() const {
-		return manager;
 	}
 
 	double GetPricePerNight() const {
@@ -124,6 +113,14 @@ public:
 
 	void SetAvailableRooms(int availableRooms = 0) {
 		available_rooms = availableRooms;
+	}
+
+	const string& GetHotelName() const {
+		return hotel_name;
+	}
+
+	void SetHotelName(const string& hotelName) {
+		hotel_name = hotelName;
 	}
 };
 
@@ -216,16 +213,38 @@ public:
 	virtual double TotalCost() const override {
 		return room.GetPricePerNight() * request.GetTotalNights();
 	}
+
+	virtual string ToString() const override {
+		ostringstream oss;
+		oss << "Hotel reservation: " << room.GetHotelName() << ": " << request.GetCity() << " @ " << request.GetCountry() << "\n";
+		oss << "\t" << request.GetFromDate() << " to " << request.GetToDate() << " : " << request.GetTotalNights() << "\n";
+		oss << "\t" << "Adults: " << request.GetAdults() << " children " << request.GetChildren() << "\n";
+		oss << "\tTotal Cost:" << TotalCost() << "\n";
+
+		return oss.str();
+	}
+
+	const HotelRequest& GetRequest() const {
+		return request;
+	}
+
+	const HotelRoom& GetRoom() const {
+		return room;
+	}
 };
 
 class IHotelsManager {
 protected:
 	HotelRequest request;
 public:
+	virtual string GetName() const = 0;
+
 	virtual void SetHotelRequest(const HotelRequest &request_) {
 		request = request_;
 	}
 	virtual vector<HotelRoom> SearchHotelRooms() = 0;
+
+	virtual bool ReserveRoom(const HotelReservation &reservation) const = 0;
 
 	virtual ~IHotelsManager() {
 	}
@@ -235,12 +254,17 @@ class HiltonHotelsManager: public IHotelsManager {
 private:
 
 public:
+	virtual string GetName() const override {
+		return "Hilton Hotel";
+	}
+
 	virtual vector<HotelRoom> SearchHotelRooms() {
 		vector<HiltonRoom> api_rooms = HiltonHotelAPI::SearchRooms(request.GetCountry(), request.GetCity(), request.GetFromDate(), request.GetToDate(), request.GetAdults(), request.GetChildren(), request.GetRooms());
 		vector<HotelRoom> rooms;
 
 		for (auto & api_room : api_rooms) {
-			HotelRoom room(this);
+			HotelRoom room;
+			room.SetHotelName("Hilton Hotel");
 			room.SetDateFrom(api_room.date_from);
 			room.SetDateTo(api_room.date_to);
 			room.SetPricePerNight(api_room.price_per_night);
@@ -250,6 +274,10 @@ public:
 			rooms.push_back(room);
 		}
 		return rooms;
+	}
+
+	virtual bool ReserveRoom(const HotelReservation &reservation) const override{
+		return true;
 	}
 };
 
@@ -257,13 +285,18 @@ class MarriottHotelsManager: public IHotelsManager {
 private:
 
 public:
+	virtual string GetName() const override {
+		return "Marriott Hotel";
+	}
+
 	virtual vector<HotelRoom> SearchHotelRooms() {
 		//string from_date, string to_date, string country, string city, int needed_rooms, int adults, int children
 		vector<MarriottFoundRoom> api_rooms = MarriottHotelAPI::FindRooms(request.GetFromDate(), request.GetToDate(), request.GetCountry(), request.GetCity(), request.GetRooms(), request.GetAdults(), request.GetChildren());
 		vector<HotelRoom> rooms;
 
 		for (auto & api_room : api_rooms) {
-			HotelRoom room(this);
+			HotelRoom room;
+			room.SetHotelName("Marriott Hotel");
 			room.SetDateFrom(api_room.date_from);
 			room.SetDateTo(api_room.date_to);
 			room.SetPricePerNight(api_room.price_per_night);
@@ -274,8 +307,10 @@ public:
 		}
 		return rooms;
 	}
+	virtual bool ReserveRoom(const HotelReservation &reservation) const override{
+		return true;
+	}
 };
-
 
 class HotelsFactory {
 public:
@@ -286,6 +321,14 @@ public:
 		managers.push_back(new MarriottHotelsManager());
 
 		return managers;
+	}
+
+	static IHotelsManager* GetManager(string name) {
+		for (IHotelsManager* mgr : HotelsFactory::GetManagers()) {
+			if (mgr->GetName() == name)
+				return mgr;
+		}
+		return nullptr;
 	}
 };
 

@@ -61,7 +61,7 @@ public:
 class SquarePaymentAPI {
 public:
 	bool static WithDrawMoney(string JsonQuery) {
-		cout << JsonQuery << "\n";
+		//cout << JsonQuery << "\n";
 		json::JSON obj = JSON::Load(JsonQuery);
 		return true;
 	}
