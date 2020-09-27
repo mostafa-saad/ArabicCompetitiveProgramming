@@ -6,8 +6,8 @@ const int MAX_SPECIALIZATION = 20;
 const int MAX_QUEUE = 5;
 
 struct hospital_queue {
-	string names[MAX_QUEUE+1];
-	int status[MAX_QUEUE+1];
+	string names[MAX_QUEUE];
+	int status[MAX_QUEUE];
 	int len;
 	int spec;
 
