@@ -40,6 +40,7 @@ When operators such as &&, || are overloaded, they lose their special properties
 
 Tip: DON'T override && ||
     They will be misused. Programmers forget or don't know the short-circuit evaluation case for operator overloading 
+	
     
 Tip: Operator overloading is great till you support it unwisely!
 

@@ -39,11 +39,6 @@ public:
 	}
 };
 
-MyPair operator !(const MyPair &c1) {
-	return MyPair(-1 * c1.GetFirst(),
-			      -1 * c1.GetSecond());
-}
-
 int main() {
 	MyPair x(1, 2);
 	x = !x;
