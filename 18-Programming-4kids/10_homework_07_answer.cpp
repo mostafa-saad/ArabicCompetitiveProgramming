@@ -16,7 +16,7 @@ int main() {
 	}
 
 	int mx_pos = 0;
-	for (int i = 0; i < MAX; i++) {
+	for (int i = 1; i < MAX; i++) {
 		if (frequency[mx_pos] < frequency[i])
 			mx_pos = i;
 	}
