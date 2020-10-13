@@ -111,11 +111,8 @@ protected:
 	vector<Shape*> shapes;
 
 public:
-	void AddShape(const Shape* const shape) {
-		shapes.push_back(shape->Clone());
-
-		// using this with removing const from param = crash
-		//shapes.push_back(shape);
+	void AddShape(const Shape &shape) {
+		shapes.push_back(shape.Clone());
 	}
 	virtual void Draw() const {
 		cout << "ImageEditor::Draw\n";
@@ -143,8 +140,8 @@ void initalize(AdobeImageEditor* editor) {
 	Rectangle r1(10, Point(3, 4), Point(5, 6));
 	Circle c1(20, Point(8, 9), 3.5);
 
-	editor->AddShape(&r1);
-	editor->AddShape(&c1);
+	editor->AddShape(r1);
+	editor->AddShape(c1);
 }
 
 int main() {

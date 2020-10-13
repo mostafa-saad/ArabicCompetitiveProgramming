@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Below: What we did with payments satisfy Dependency inversion principle
+// Below: What we did with payments satisfies Dependency inversion principle
 // High-level modules (wesite class) should not depend on low-level modules (PaypalPayment APIs).
 // Both should depend on abstractions (e.g. IPayment).
 
@@ -95,6 +95,9 @@ public:
 
 class Factory {
 public:
+	// In single place, gather all payments
+	// In future a change happens here
+	// Called Factory method design pattern
 	static IPayment* GetPaymentHelper() {
 		if (true)
 			return new PayPalPayment();
@@ -120,6 +123,7 @@ private:
 
 public:
 	Craigslist() {
+		// Craigslist knows nothing about PayPal
 		payment = Factory::GetPaymentHelper();
 	}
 

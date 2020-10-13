@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// PayPalCreditCard and PayPalOnlinePaymentAPI are NOT our code. They are Paypal API.
+// We have to use them to be able to call PayPal service
+
 
 class PayPalCreditCard {
 public:

@@ -62,9 +62,9 @@ public:
 		CreditCard* creditCard = nullptr;
 		DebitCard* debitCard = nullptr;
 
-		if ((creditCard = static_cast<CreditCard*>(&payment_card)))
+		if ((creditCard = dynamic_cast<CreditCard*>(&payment_card)))
 			payment_helper->SetUserInfo(payment_card.GetOwnerName(), "");
-		else if ((debitCard = static_cast<DebitCard*>(&payment_card))) {
+		else if ((debitCard = dynamic_cast<DebitCard*>(&payment_card))) {
 			payment_helper->SetUserInfo(payment_card.GetOwnerName(), debitCard->GetBillingAddress());
 		}
 		payment_helper->SetCardInfo(payment_card.GetCardNumber(), payment_card.GetExpiryDate(), payment_card.GetSecurityCode());
