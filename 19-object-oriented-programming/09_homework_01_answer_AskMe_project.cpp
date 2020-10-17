@@ -1,5 +1,3 @@
-// NOT well tested :)
-// NOT really the best OO code :)
 // You are encouraged to challenge this code and notify me of issues :)
 // Compare this code with Programming 1 code to realize differences
 
@@ -620,7 +618,7 @@ public:
 		for (const auto &pair : questionid_questionobject_map)
 			lines.push_back(pair.second.ToString());
 
-		WriteFileLines("18_questions.txt", lines, false);
+		WriteFileLines("09_homework_01_answer_AskMe_project_questions.txt", lines, false);
 	}
 };
 
