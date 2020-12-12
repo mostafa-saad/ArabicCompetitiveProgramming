@@ -21,7 +21,7 @@ https://stackoverflow.com/questions/3561648/why-does-c-not-allow-inherited-frien
 ====================
 Comparing, the set of objects of a base class with its derived classes, which one is bigger?
 
-Yhe set of objects represented by a base class typically is larger than the set of objects represented by any of its derived classes. 
+the set of objects represented by a base class typically is larger than the set of objects represented by any of its derived classes. 
 For example, the base class Vehicle represents all vehicles, including cars, trucks, boats, airplanes, bicycles and so on. 
 
 By contrast, derived class Car represents a smaller, more specific subset of all vehicles.
