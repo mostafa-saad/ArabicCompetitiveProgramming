@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#include "json.hpp"
+using namespace json;
+
 // Below: What we did with payments satisfies Dependency inversion principle
 // High-level modules (wesite class) should not depend on low-level modules (PaypalPayment APIs).
 // Both should depend on abstractions (e.g. IPayment).
@@ -41,6 +44,15 @@ public:
 	bool static WithDrawMoney(StripeUserInfo user,
 							  StripeCardInfo card,
 							  double money) {
+		return true;
+	}
+};
+
+class SquarePaymentAPI {
+public:
+	bool static WithDrawMoney(string JsonQuery) {
+		//cout << JsonQuery << "\n";
+		json::JSON obj = JSON::Load(JsonQuery);
 		return true;
 	}
 };
@@ -93,18 +105,57 @@ public:
 	}
 };
 
-class Factory {
+class SquarePayment: public IPayment {
+private:
+	string name;
+	string address;
+	string id;
+	string expiry_date;
+	int ccv;
+
+public:
+	virtual void SetUserInfo(string name_, string address_) {
+		name = name_;
+		address = address_;
+	}
+	virtual void SetCardInfo(string id_, string expiry_date_, int ccv_) {
+		id = id_;
+		expiry_date = expiry_date_;
+		ccv = ccv_;
+	}
+	virtual bool MakePayment(double money) {
+		// This now similar to Adapter pattern. We change format of interface to match another interface
+		json::JSON obj;
+		obj["user_info"] = json::Array(name, address);
+		obj["card_info"]["ID"] = id;
+		obj["card_info"]["DATE"] = expiry_date;
+		obj["card_info"]["CCV"] = ccv;
+		obj["money"] = money;
+
+		ostringstream oss;
+		oss << obj;
+		string json_query = oss.str();
+
+		return SquarePaymentAPI::WithDrawMoney(json_query);
+	}
+};
+
+
+class PaymentFactory {
 public:
 	// In single place, gather all payments
 	// In future a change happens here
 	// Called Factory method design pattern
 	static IPayment* GetPaymentHelper() {
 		if (true)
+			return new SquarePayment();
+		else if (true)
 			return new PayPalPayment();
 		else
 			return new StripePayment();
 	}
 };
+
 //////////////////////////////
 
 class TransactionInfo {
@@ -124,7 +175,7 @@ private:
 public:
 	Craigslist() {
 		// Craigslist knows nothing about PayPal
-		payment = Factory::GetPaymentHelper();
+		payment = PaymentFactory::GetPaymentHelper();
 	}
 
 	bool Pay(TransactionInfo info) {
