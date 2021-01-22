@@ -1,12 +1,9 @@
 #include<iostream>
 using namespace std;
 
-// test
-// aaa aaaaaaa	NO
-// aa AA NO
-
 int main() {
 	string big_str, small_str;
+
 	cin >> big_str >> small_str;
 
 	if (small_str.size() > big_str.size()) {
@@ -14,11 +11,9 @@ int main() {
 		return 0;
 	}
 
-	// Compare the end of the small with the large
-	int big_end = (int)big_str.size()-1;
-	int small_end = (int) small_str.size()-1;
+	// Compare the begin of the small with the large
 	for (int i = 0; i < (int) small_str.size(); i++) {
-		if (big_str[big_end--] != small_str[small_end--]) {
+		if (big_str[i] != small_str[i]) {
 			cout << "NO\n";
 			return 0;
 		}

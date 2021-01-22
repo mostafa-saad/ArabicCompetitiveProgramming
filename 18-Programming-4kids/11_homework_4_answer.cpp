@@ -1,28 +1,27 @@
-// By Basel Bairkdar: https://www.facebook.com/baselbairkdar
 #include<iostream>
 using namespace std;
 
-string input,str;
+int main() {
+	string big_str, small_str;
+	cin >> big_str >> small_str;
 
-int main()
-{
-    cin >> input >> str;
+	if (small_str.size() > big_str.size()) {
+		cout << "NO\n";
+		return 0;
+	}
 
-    int in=0;/** index of str **/
+	// Keep match letters in order from the big in the small
+	int next_to_match = 0;
+	for (int i = 0; i < (int) big_str.size(); ++i) {
+		if (big_str[i] == small_str[next_to_match]) {
+			++next_to_match;
+			if (next_to_match == (int)small_str.size()) {
+				cout << "YES\n";
+				return 0;
+			}
+		}
+	}
+	cout << "NO\n";
 
-    for (int i=0;i<input.size();i++)
-    {
-        if (input[i]==str[in])/** if there is a match just increase the index **/
-        {
-            in++;
-            if (in==str.size())break;/** reached the end of str **/
-        }
-    }
-
-
-    if (in==str.size())/** have we reached the end of str ? if so then it is a subsequence **/
-        cout << "YES\n";
-    else
-        cout << "NO\n";
-    return 0;
+	return 0;
 }

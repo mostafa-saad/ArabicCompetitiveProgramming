@@ -1,27 +1,25 @@
-// By Mohamed Yasser https://www.facebook.com/SanfourRadwan
-
 #include <iostream>
-#include <string>
 using namespace std;
-int main()
-{
-    string input;
-    cin >> input;
-    int len = input.size() , cnt = 1;
-    for(int i = 1 ; i < len ; i++){
-        /**
-            if the current character is equal previous character
-            then they are in same group and we need increment count by 1
 
-            otherwise they are in Different groups and we need print last group
-            and start count 1
-        */
-        if(input[i-1] != input[i]){
-            cout << input[i-1] << cnt << "_";
-            cnt = 1;
-        }else cnt++;
-    }
-    /// print last group
-    cout << input[len-1] << cnt << "\n";
-    return 0;
+int main() {
+	string str;
+	cin >> str;
+
+	str += "$";	// a small trick to avoid special handling for last group
+
+	int group_sz = 1;	// for first letter
+	bool is_first_group = true;	// easy mark to avoid early _
+
+	for (int i = 1; i < (int) str.size(); i++) {	// start from 1
+		if (str[i - 1] != str[i]) { // new group
+			if (!is_first_group)
+				cout << "_";	// split with previous group
+			cout << str[i - 1] << group_sz;
+
+			group_sz = 0;
+			is_first_group = 0;
+		}
+		++group_sz;
+	}
+	return 0;
 }
