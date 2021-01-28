@@ -3,17 +3,17 @@
  *
  ******************************************** Licence *******************************************
  * 																								*
- * This File is part of Algorithms Arabic Video Series											*
- *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University						*
+ * This File is part of Algorithms Arabic Video Series
+ *	Made By Eng Mostafa Saad, Teaching Assistant in FCI - Cairo University
  * 																								*
- *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee		*
+ *	Available at My YouTube Channel: http://www.youtube.com/user/nobody123497?feature=mhee
  * 																								*
- * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.	*
+ * Feel free to make use of it at anytime, for any reason, in anyway, without any obligations.
  * 																								*
  * 																								*
- * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
+ * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com
  * 																								*
- * Mostafa Saad Ibrahim © 2013																	*
+ * Mostafa Saad Ibrahim Â© 2013
  * 																								*
  ************************************************************************************************
  *
@@ -38,20 +38,20 @@ http://en.wikipedia.org/wiki/Prime_factor
 
 */
 
-#includeset
-#includemap
-#includelist
-#includeiomanip
-#includecmath
-#includestring
-#includevector
-#includequeue
-#includestack
-#includecomplex
-#includesstream
-#includeiostream
-#includealgorithm
-#includestdio.h
+#include <set>
+#include <map>
+#include <list>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <vector>
+#include <queue>
+#include <stack>
+#include <complex>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <stdio.h>
 using namespace std;
 typedef long long ll;
 
@@ -67,11 +67,11 @@ int total_operations = 0;
 
 
 
- Factorization Decompose number to set of multiplied numbers
- 300 = 4  3  25
- Fundamental theorem of arithmetic (unique-prime-factorization theorem) every integer  1 is either prime or product of primes
- 7 is prime
- 300 = 2  2  3  5  5 = 2^2  3^1  5^2
+// Factorization Decompose number to set of multiplied numbers
+// 300 = 4  3  25
+// Fundamental theorem of arithmetic (unique-prime-factorization theorem) every integer  1 is either prime or product of primes
+// 7 is prime
+// 300 = 2  2  3  5  5 = 2^2  3^1  5^2
 
 
 
@@ -92,18 +92,18 @@ int total_operations = 0;
 
 
 
-vectorll generate_divisors(ll n)	 O( sqrt(n) )
+vector<ll> generate_divisors(ll n)	 // O( sqrt(n) )
 {
-	vectorll v;
+	vector<ll> v;
 	ll i;
-	for(i = 1 ; ii  n  ;++i)
-		if(n%i == 0)
-			v.push_back(i), v.push_back(ni);
+	for(i = 1; i * i < n; ++i)
+		if(n % i == 0)
+			v.push_back(i), v.push_back(n / i);
 
-	if(ii == n)
+	if(i * i == n)
 		v.push_back(i);
 
-	return v;	 Not sorted
+	return v;	 // Not sorted
 }
 
 
@@ -120,12 +120,12 @@ vectorll generate_divisors(ll n)	 O( sqrt(n) )
 
 
 
- How to factroize n
- 1) use Sieve to get prime numbers in range n
- 2) For each prime p,
-		while(n%p == 0)
-			cnt++;
-			n = p;
+// How to factroize n
+// 1) use Sieve to get prime numbers in range n
+// 2) For each prime p,
+//		while (n % p == 0)
+//			cnt++;
+//			n = p;
 
 
 
@@ -143,20 +143,20 @@ vectorll generate_divisors(ll n)	 O( sqrt(n) )
 
 
 
- what about n = 0 n = 1
-vectorll factorization(ll n) 	 max n is 1e12
-{	 O( sqrt(n) )
+// what about n = 0 n = 1
+vector<ll> factorization(ll n) 	 // max n is 1e12
+{
+	// O( sqrt(n) )
+	vector<ll> primes;
 
-	vectorll primes;
-
-	for (ll i = 2; i  i = n; ++i)	 Improve start by i = 3.
+	for (ll i = 2; i * i <= n; ++i)	// Improve start by i = 3.
 		while (n % i == 0)
-			primes.push_back(i), n = i;	 Get every prime inside n.	n  i^j	is a new number
+			primes.push_back(i), n = i;	// Get every prime inside n.    n / i^j is a new number
 
-	 Two ways to prove that n will be prime number if n  1
-	 1) Think in n  pi^x as a NEW sub-problem. If we went to its sqrt and % applied, then we are facing a prime number
-	 2) Prove that, for any n either all its primes before sqrt(n), or only the biggest prime after sqrt(n).
-	if (n  1)
+	// Two ways to prove that n will be prime number if n  1
+	// 1) Think in n  pi^x as a NEW sub-problem. If we went to its sqrt and % applied, then we are facing a prime number
+	// 2) Prove that, for any n either all its primes before sqrt(n), or only the biggest prime after sqrt(n).
+	if (n > 1)
 		primes.push_back(n);
 
 	return primes;
@@ -184,21 +184,21 @@ vectorll factorization(ll n) 	 max n is 1e12
 
 
 
- Counting the divisors
- 2^4 has 5 divisors 2^0, 2^1...2^4
- p^n has n+1 divisors for any pprime number
- what about p1^a  p1^b  	(a+1)  (b+1)
- E.g. 12 2^2  3^1	has 3  2 divisors.
- 12 = 2^0  3^0
- 12 = 2^0  3^1
- 12 = 2^1  3^0
- 12 = 2^1  3^1
- 12 = 2^2  3^0
- 12 = 2^2  3^1
- So if we modified factorization to return (p1^a, p2^b...)
- We could develop a simple RECURSIVE code to build the divisors.
- Simply pick a power from current prime, and move to next prime number
- Any iterative code is also possible, but a bit challenging
+//  Counting the divisors
+//  2^4 has 5 divisors 2^0, 2^1...2^4
+//  p^n has n+1 divisors for any pprime number
+//  what about p1^a * p1^b  	(a+1) * (b+1)
+//  E.g. 12: 2^2  3^1	has 3 * 2 divisors.
+//  12 = 2^0 * 3^0
+//  12 = 2^0 * 3^1
+//  12 = 2^1 * 3^0
+//  12 = 2^1 * 3^1
+//  12 = 2^2 * 3^0
+//  12 = 2^2 * 3^1
+//  So if we modified factorization to return (p1^a, p2^b...)
+//  We could develop a simple RECURSIVE code to build the divisors.
+//  Simply pick a power from current prime, and move to next prime number
+//  Any iterative code is also possible, but a bit challenging
 
 
 
@@ -218,14 +218,12 @@ vectorll factorization(ll n) 	 max n is 1e12
 
 
 
- what about Factorizing n^power
- Simply if 	n   = p1^a 		 p2^b 		 p3^c
- Then      	n^z = p1^az 	 p2^bz 	 p3^cz
+// what about Factorizing n^power
+// Simply if 	n   = p1^a 	* p2^b 		* p3^c
+// Then      	n^z = p1^az 	* p2^bz 	* p3^cz
 
- Divisors of 	n   = (a+1) 	 (b+1) 	 (c+1)
- Divisors of 	n^z = (az+1) 	 (bz+1) 	 (cz+1)
-
-
+// Divisors of 	n   = (a+1) 	* (b+1) 	* (c+1)
+// Divisors of 	n^z = (az+1) 	* (bz+1) 	* (cz+1)
 
 
 
@@ -241,11 +239,13 @@ vectorll factorization(ll n) 	 max n is 1e12
 
 
 
- Let D(i) is number of divisors of i. Return sum D(i) in range n
-int rangeFactorization1(int n)			 Forward thinking
+
+
+// Let D(i) is number of divisors of i. Return sum D(i) in range n
+int rangeFactorization1(int n)  	// Forward thinking
 {
 	int s = 0;
-	for (int i = 1; i = n; i++)
+	for (int i = 1; i <= n; i++)
 		s += generate_divisors(i).size();
 
     return s;
@@ -270,17 +270,18 @@ int rangeFactorization1(int n)			 Forward thinking
 
 
 
-int rangeFactorization2(int n)		 backward thinking
-{	suitable for range 210^6
-	vectorint numFactors(n+1);
+int rangeFactorization2(int n)  	// backward thinking
+{
+	// suitable for range 210^6
+	vector<int> numFactors(n+1);
 
-	for (int i = 1; i = n; i++)			 For each divisor
-		for (int k = i; k = n; k += i)			 For each divisble number
-        	numFactors[k]++;						 i divides k
+	for (int i = 1; i <= n; i++)			// For each divisor
+		for (int k = i; k <= n; k += i)			// For each divisble number
+        	numFactors[k]++;					// i divides k
 
 	int s = 0;
-	for (int i = 1; i = n; i++)
-		s += numFactors[i];		 sure you can do it without an array
+	for (int i = 1; i <= n; i++)
+		s += numFactors[i];		 // sure you can do it without an array
 
     return s;
 }
