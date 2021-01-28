@@ -125,7 +125,7 @@ vector<ll> generate_divisors(ll n)	 // O( sqrt(n) )
 // 2) For each prime p,
 //		while (n % p == 0)
 //			cnt++;
-//			n = p;
+//			n /= p;
 
 
 
