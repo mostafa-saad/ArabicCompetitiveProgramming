@@ -37,7 +37,17 @@ int main() {
 	// Either 1*something + 0*something for b = 1
 	// Or     0*something + 1*something for b = -1
 	cout<<is_1 * equ_is_1 + is_neg_1 * equ_is_neg_1;
+	/*
+	we can try the following syntax with this equation in mind
+	A**(B+1) + ((1-B) * A)
+	*/
+	#include <math.h>
+	using namespace std;
 
+	
+	    int num1, num2;
+	    cin >> num1 >> num2;
+	    cout << pow(num1, (num2 + 1)) +  ((1-num2)* num1)  << endl;
 	return 0;
 }
 
