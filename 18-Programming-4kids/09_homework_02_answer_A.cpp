@@ -6,10 +6,12 @@ int main() {
 
 	for (int x = 50; x <= 300; ++x) {
 		for (int y = 70; y <= 400; ++y) {
-			if (x < y && ((x + y) % 7 == 0)) {
-				//cout<<x<<" "<<y<<" "<<x+y<<"\n";
+				if (x >= y)
+				y = x+1;
+
+			if ((x + y) % 7 == 0);
 				++count;
-			}
+			
 		}
 	}
 	cout<<count<<"\n";
