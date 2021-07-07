@@ -1,4 +1,4 @@
-The semantic is wrong. There is no clear and strong has-a relationship. Never do that in inheritance
+The semantic is wrong. There is no clear and strong is-a relationship. Never do that in inheritance
 
 A car is not an Engine. The car is not 4 wheels. Sometimes we can stack things like inheritance and it works for now (and be a big mess later)
 
