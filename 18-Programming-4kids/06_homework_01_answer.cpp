@@ -3,20 +3,18 @@ using namespace std;
 
 int main() {
 
-	int num;
-	cin >> num;
+ cout<<"-If it shows 1, it's odd.\n \n";
 
-	// Is even using %2
-	bool is_even1 = (num % 2 == 0);
+    int num1;
+    cin>>num1;
+    
+	cout<<(num1%2==1)<<"\n";
+    
+	cout<<(num1%10==1||num1%10==3||num1%10==5||num1%10==7||num1%10==9)<<"\n";
+    
+	double num1_double=num1;
+        cout<<(num1_double/2==num1/2+.5)<<"\n";
 
-	// is even using /2
-	double by2 = (double) num / 2.0;// this is either X.0 or X.5  (try 10, 11)
-	by2 = by2 - (int) by2;// Remove X. This is now either 0 (for even) or 0.5 (for odd)
-	bool is_even2 = by2 == 0;
-
-	// is even using %10
-	int last_digit = num % 10;	// even last digit is 0, 2, 4, 6, 8
-	bool is_even3 = last_digit == 0 || last_digit == 2 || last_digit == 4 || last_digit == 6 || last_digit == 8;
 
 	return 0;
 }
