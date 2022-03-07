@@ -1,0 +1,20 @@
+This problem is known as an Exploding class hierarchy
+
+We could easily from the begin build one class and keep changing it so that it has boolean in the constructor for:
+    - is thread-safe? is logging? is caching?
+    
+- But this means we have a huge code with several reasons to change = mess
+
+- When we tried to follow design guidelines = every time we expanded the tree leaves with more classes to support a new feature
+
+- Here is another real case
+    https://stackoverflow.com/questions/60540457/class-hierarchies-exploding
+
+- "Large inheritance hierarchies in general, and deep ones in particular, are confusing to understand and therefore difficult to maintain. "
+- "Inheritance is a design-time decision and trades off a lot of runtime flexibility."
+
+- 
+
+- Diagrams source: 			https://dzone.com/articles/is-inheritance-dead
+
+

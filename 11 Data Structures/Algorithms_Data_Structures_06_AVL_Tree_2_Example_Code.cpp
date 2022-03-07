@@ -21,6 +21,7 @@
  */
 
 #include<iostream>
+#include<cstring>
 using namespace std;
 
 
@@ -50,7 +51,7 @@ struct node{
 	}
 
 	int balanceFactor(){
-			return right->left - left->right;
+			return left->height - right->height;
 	}
 };
 
@@ -115,4 +116,9 @@ node* insert(node* root, int val){
 	root->updateHeight();
 	root = balance(root);
 	return root;
+}
+
+
+int main() {
+	return 0;
 }
