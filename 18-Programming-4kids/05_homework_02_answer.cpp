@@ -36,12 +36,14 @@ int main() {
 
 	// Neither nb >= 60 nor ng >= 70
 	cout << (  !(nb >= 60) && !(ng >= 70) ) << "\n";
+	cout<< !(nb >= 60 || ng>= 70); // Another solution
 
 	// nb is 10 more students than ng
 	cout << (nb == ng + 10) << "\n";
 
 	// Difference between nb and ng is more than 10 or nt > 5
 	cout << (nb - ng > 10 || nt > 5) << "\n";
+	cout<< (nb - ng > 10 || ng - nb > 10 || nt > 5); // More accurate solution
 
 	// Either nb is 10 more students than ng or ng is 15 more students than nb
 	cout << (nb == ng + 10 || ng == nb + 15) << "\n";
