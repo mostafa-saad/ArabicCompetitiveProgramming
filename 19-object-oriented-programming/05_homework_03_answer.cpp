@@ -44,6 +44,8 @@ public:
 	D(const A &a, const B &b, const C &c) : aa(a), bb(b), cc(c){
 		// By using & => we use same memory object hence faster and low memory
 		// By using const => we remember developers you shouldn't try to change this parameter
+	        // also this allow the user to pass temperory objects and const objects.
+		// this allows to receive Rvalue and Lvalue not just Lvalue
 	}
 };
 
